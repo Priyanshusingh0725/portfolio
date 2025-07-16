@@ -1,0 +1,328 @@
+SQL Portfolio Project: Music Store Analysis
+Project Overview
+This project delves into a music store dataset using SQL, specifically PostgreSQL, leveraging the Chinook Sample Database. The aim is to extract meaningful business insights through a series of SQL queries, ranging from basic SELECT statements to complex Common Table Expressions (CTEs) and window functions. The queries are categorized by difficulty level (Easy, Moderate, Advanced, Expert) to showcase a progressive understanding of SQL concepts and data analysis.
+
+Objective
+Practice SQL Query Writing: Enhance proficiency in writing efficient and effective SQL queries.
+
+Extract Business Insights: Uncover valuable information and trends from a normalized relational database.
+
+Demonstrate Data Analysis Skills: Showcase the ability to analyze data, identify key metrics, and present findings.
+
+Schema Used
+The analysis is performed on the following tables from the Chinook Sample Database:
+
+customer: Customer information.
+
+employee: Employee details, including manager relationships.
+
+invoice: Invoice details for purchases.
+
+invoiceline: Details of items within each invoice.
+
+track: Information about individual music tracks.
+
+album: Album details.
+
+artist: Artist information.
+
+genre: Music genre categories.
+
+playlist: Playlist information.
+
+playlist_track: Junction table for tracks in playlists.
+
+SQL Queries
+The queries are organized into different difficulty levels.
+
+Easy Level Queries
+These queries focus on basic data retrieval and aggregation.
+
+List the names of all customers.
+
+SELECT first_name,last_name FROM customer
+
+Retrieve the names of all employees and their job titles.
+
+SELECT first_name,last_name,title FROM employee
+
+Show all the tracks along with their unit prices.
+
+SELECT name,unit_price FROM track
+
+List all albums with their corresponding artist names.
+
+SELECT t1.title,t2.name FROM album t1
+JOIN artist t2
+ON t1.artist_id=t2.artist_id
+
+Find the total number of customers in the database.
+
+SELECT COUNT(customer_id) AS total_customers FROM customer
+
+List all tracks that are longer than 5 minutes (300,000 milliseconds).
+
+SELECT track_id,name, milliseconds FROM track
+WHERE milliseconds > 300000
+
+Show the names of playlists and the number of tracks in each playlist.
+
+SELECT t1.name,COUNT(t2.track_id) AS number_of_tracks FROM playlist t1
+JOIN  playlist_track t2
+ON t1.playlist_id=t2.playlist_id
+GROUP BY name
+
+List all invoices with customer names and total amount billed.
+
+SELECT t1.customer_id,t1.first_name,t1.last_name,ROUND(sum(t2.total)::numeric,2) AS total_amount_billed FROM customer t1
+JOIN invoice t2
+ON t1.customer_id=t2.customer_id
+GROUP BY t1.customer_id
+
+Get the list of employees along with the names of their managers.
+
+SELECT e.first_name || ' ' || e.last_name AS EmployeeName,
+       m.first_name || ' ' || m.last_name AS ManagerName
+FROM employee e
+LEFT JOIN employee m ON e.reports_to = m.employee_id
+
+Retrieve the top 5 most expensive tracks.
+
+SELECT track_id,name,unit_price FROM track
+ORDER BY unit_price DESC LIMIT 5
+
+Moderate Level Queries
+These queries involve joins, aggregations, and basic subqueries.
+
+Which customer has spent the most money?
+
+SELECT t2.customer_id,t2.first_name,t2.last_name,ROUND(SUM(t1.total)::NUMERIC,2) AS total_money_spent FROM invoice t1
+JOIN customer t2
+ON t1.customer_id=t2.customer_id
+GROUP BY t2.customer_id ORDER BY total_money_spent
+DESC LIMIT 1
+
+Which employee has the most customers under them (i.e., whom they support)?
+
+SELECT t1.employee_id,t1.first_name,t1.last_name,COUNT(*) AS total_customer FROM employee t1
+JOIN customer t2
+ON CAST(t1.employee_id AS INTEGER)=t2.support_rep_id
+GROUP BY t1.employee_id
+ORDER BY total_customer
+DESC LIMIT 1
+
+Which track generated the most revenue?
+
+SELECT t1.name ,(t2.unit_price*t2.quantity) AS total_revenue FROM track t1
+JOIN invoice_line t2
+ON t1.track_id=t2.track_id
+ORDER BY total_revenue DESC LIMIT 1
+
+What are the top 5 most purchased genres?
+
+SELECT t1.genre_id,t1.name,ROUND(SUM(t4.total)::NUMERIC,3) AS total_money FROM genre t1
+JOIN track t2
+ON t1.genre_id=t2.genre_id
+JOIN invoice_line t3
+ON t3.track_id =t2.track_id
+JOIN invoice t4
+ON t4.invoice_id=t3.invoice_id
+GROUP BY t1.genre_id
+ORDER BY total_money DESC LIMIT 5
+
+What is the average invoice total per country?
+
+SELECT billing_country,ROUND(AVG(total)::NUMERIC,2) AS avg_invoice_total FROM invoice
+GROUP BY billing_country
+
+Which albums contain the most tracks?
+
+SELECT t1.album_id,t1.title,COUNT(t2.track_id) AS num_of_track FROM album t1
+JOIN track t2
+ON t1.album_id=t2.album_id
+GROUP BY t1.album_id
+ORDER BY num_of_track DESC LIMIT 1
+
+List the top 3 customers in each country by total spending.
+
+SELECT *FROM (
+    SELECT
+        t1.customer_id,
+        t1.first_name,
+        t1.last_name,
+        t2.billing_country,
+        SUM(t2.total) AS total_spent,
+        RANK() OVER (PARTITION BY t2.billing_country ORDER BY SUM(t2.total) DESC) AS rank
+    FROM
+        customer t1
+    JOIN
+        invoice t2 ON t1.customer_id = t2.customer_id
+    GROUP BY
+        t1.customer_id, t1.first_name, t1.last_name, t2.billing_country
+)  ranked
+WHERE rank <= 3
+
+Advanced Level Queries
+These queries utilize advanced SQL techniques like CTEs, window functions, and nested subqueries.
+
+Which albums have more tracks than the average number of tracks per album?
+
+SELECT
+    a.album_id,
+    COUNT(t.track_id) AS track_count
+FROM
+    album a
+JOIN
+    track t ON a.album_id = t.album_id
+GROUP BY
+    a.album_id
+HAVING
+    COUNT(t.track_id) > (
+        SELECT AVG(track_count)
+        FROM (
+            SELECT COUNT(*) AS track_count
+            FROM track
+            GROUP BY album_id
+        ) AS album_track_counts
+    )
+
+List the top 3 customers per country by their total purchases.
+
+SELECT *
+FROM (
+    SELECT
+        c.customer_id,
+        c.first_name,
+        c.last_name,
+        c.country,
+        SUM(i.total) AS total_spent,
+        RANK() OVER (PARTITION BY c.country ORDER BY SUM(i.total) DESC) AS country_rank
+    FROM customer c
+    JOIN invoice i ON c.customer_id = i.customer_id
+    GROUP BY c.customer_id, c.first_name, c.last_name, c.country
+) ranked
+WHERE country_rank <= 3;
+
+Identify tracks that have never been purchased.
+
+SELECT * FROM track t1
+LEFT JOIN invoice_line t2
+ON t1.track_id=t2.track_id
+WHERE t2.track_id IS NULL
+
+Find the invoice(s) with the highest total amount.
+
+SELECT invoice_id,total FROM invoice
+WHERE total = (SELECT MAX(total) FROM invoice)
+
+Which genre has the highest average track price?
+
+SELECT t1.genre_id,t2.name,ROUND(AVG(unit_price)::NUMERIC,2) AS avg_track_price FROM track t1
+JOIN genre t2
+ON t1.genre_id=t2.genre_id
+GROUP BY t1.genre_id,t2.name
+ORDER BY avg_track_price DESC LIMIT 1
+
+Show all customers who have purchased tracks from more than 5 different genres.
+
+SELECT t1.customer_id, COUNT(DISTINCT t4.genre_id) AS num_of_distinct_genres
+FROM customer t1
+JOIN invoice t2 ON t1.customer_id = t2.customer_id
+JOIN invoice_line t3 ON t2.invoice_id = t3.invoice_id
+JOIN track t4 ON t3.track_id = t4.track_id
+GROUP BY t1.customer_id
+HAVING COUNT(DISTINCT t4.genre_id) > 5
+
+Which artists have their tracks in more than 3 genres?
+
+SELECT t1.artist_id,t1.name AS artist_name,
+    COUNT(DISTINCT t4.genre_id) AS genre_count
+FROM  artist t1
+JOIN album t2 ON t1.artist_id = t2.artist_id
+JOIN track t3 ON t2.album_id = t3.album_id
+JOIN genre t4 ON t3.genre_id = t4.genre_id
+GROUP BY
+    t1.artist_id, t1.name
+HAVING COUNT(DISTINCT t4.genre_id) > 3
+
+List the customers who have spent above the average total amount across all customers.
+
+WITH t1 AS (
+    SELECT
+        t2.customer_id,
+        t2.first_name,
+        t2.last_name,
+        SUM(t3.total) AS total_spent
+    FROM
+        customer t2
+        JOIN invoice t3 ON t2.customer_id = t3.customer_id
+    GROUP BY
+        t2.customer_id, t2.first_name, t2.last_name
+),
+t4 AS (
+    SELECT AVG(total_spent) AS avg_spent FROM t1
+)
+SELECT
+    customer_id,
+    first_name,
+    last_name,
+    total_spent
+FROM
+    t1
+WHERE
+    total_spent > (SELECT avg_spent FROM t4)
+
+Find the top artist by total number of tracks released.
+
+WITH t1 AS (
+    SELECT
+        t2.artist_id,
+        t2.name AS artist_name,
+        COUNT(t4.track_id) AS total_tracks
+    FROM
+        artist t2
+        JOIN album t3 ON t2.artist_id = t3.artist_id
+        JOIN track t4 ON t3.album_id = t4.album_id
+    GROUP BY
+        t2.artist_id, t2.name
+)
+SELECT
+    artist_id,
+    artist_name,
+    total_tracks
+FROM
+    t1
+ORDER BY
+    total_tracks DESC
+LIMIT 1
+
+Expert/Beyond-Hard Level Queries
+(This section is currently empty, indicating potential for future additions.)
+
+Business Insights Summary
+Based on the analysis, here are some key business insights derived from the music store dataset:
+
+Track Purchase Status: All tracks in the database have been purchased at least once, indicating good inventory turnover for music.
+
+Geographic Spending: Customers from the USA and Canada exhibit the highest spending, suggesting these regions are key markets for the music store.
+
+Genre Popularity: Rock is consistently the most purchased genre overall, highlighting its popularity among the customer base.
+
+Artist Contribution: The top artist in the dataset has released over 200 tracks, signifying a significant contribution to the store's music catalog.
+
+Employee Engagement: All employees contribute to customer engagement and sales, suggesting a well-rounded and effective support team.
+
+Artist Sales: No artist in this dataset remains completely unpurchased, which is a positive indicator for artist diversity and sales across the board.
+
+Usage
+To run these queries, you will need a PostgreSQL database with the Chinook Sample Database loaded.
+
+Install PostgreSQL: If you don't have PostgreSQL installed, follow the official documentation for your operating system.
+
+Load Chinook Database: Download the Chinook database schema and data for PostgreSQL from the official Chinook repository or other reliable sources.
+
+Connect to Database: Use a SQL client (e.g., DBeaver, pgAdmin, or psql) to connect to your PostgreSQL instance.
+
+Execute Queries: Copy and paste the queries from this README into your SQL client and execute them to see the results.
+
+This project serves as a comprehensive demonstration of SQL skills for data analysis and business intelligence.

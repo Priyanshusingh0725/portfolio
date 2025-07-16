@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +43,7 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
     <!-- 🔗 Navigation Bar START -->
     <nav class="bg-white shadow p-4">
@@ -54,19 +52,14 @@
             <div class="space-x-6">
                 <a href="index.html" class="text-gray-700 hover:text-purple-600">Home</a>
                 <a href="about.html" class="text-gray-700 hover:text-purple-600">About</a>
-                <a href="#" class="text-gray-700 hover:text-purple-600">Projects</a>
-                <a href="#" class="text-gray-700 hover:text-purple-600">Contact</a>
+                <a href="#projects" class="text-gray-700 hover:text-purple-600">Projects</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600">Contact</a>
             </div>
         </div>
     </nav>
     <!-- 🔗 Navigation Bar END -->
 
-    <!-- Your existing content continues below -->
-    
-</body>
-</html>
-<body class="bg-gray-50">
-    <!-- Header -->
+    <!-- ✅ Header with Download CV Button START -->
     <header class="gradient-bg text-white py-20">
         <div class="container mx-auto px-6 text-center">
             <div class="mb-6">
@@ -77,447 +70,24 @@
                 <p class="text-xl md:text-2xl mb-6 opacity-90">Data Analyst & Machine Learning Enthusiast</p>
                 <p class="text-lg opacity-80 max-w-2xl mx-auto">M.Sc. Statistics Student at BHU | Transforming Data into Insights</p>
             </div>
-            <div class="flex justify-center space-x-6">
+            <div class="flex justify-center flex-wrap gap-4 mt-6">
                 <a href="#about" class="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-opacity-90 transition">
                     <i class="fas fa-user mr-2"></i>About Me
                 </a>
                 <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition">
                     <i class="fas fa-briefcase mr-2"></i>Projects
                 </a>
+                <!-- ✅ Download CV Button -->
+                <a href="Priyanshu_CV.pdf" download class="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition">
+                    <i class="fas fa-download mr-2"></i>Download CV
+                </a>
             </div>
         </div>
     </header>
+    <!-- ✅ Header with Download CV Button END -->
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">About Me</h2>
-            </div>
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Current Status</h3>
-                        <p class="text-gray-600 mb-6">I'm currently pursuing my M.Sc. in Statistics at Banaras Hindu University (BHU), building upon my strong foundation from B.Sc. Statistics Hons. My passion lies in transforming raw data into actionable insights through advanced analytics and machine learning.</p>
-                        <p class="text-gray-600 mb-6">With hands-on experience in SQL, Power BI, Tableau, Python, and various machine learning frameworks, I'm actively preparing for campus placements in data analytics and data science roles.</p>
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-graduation-cap text-purple-600 text-xl"></i>
-                            <span class="text-gray-700">M.Sc. Statistics, BHU</span>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-lg">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Quick Facts</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center">
-                                <i class="fas fa-map-marker-alt text-purple-600 mr-3"></i>
-                                <span class="text-gray-700">Based in Varanasi, India</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-target text-purple-600 mr-3"></i>
-                                <span class="text-gray-700">Goal: Data Scientist</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-clock text-purple-600 mr-3"></i>
-                                <span class="text-gray-700">6+ hours/week dedicated learning</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-code text-purple-600 mr-3"></i>
-                                <span class="text-gray-700">Python, SQL, Power BI Expert</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ✅ Your entire remaining HTML stays the same -->
+    <!-- Keep all sections like About, Skills, Projects, Contact, Footer, etc. as it is -->
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Technical Skills</h2>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Programming Languages -->
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-code text-4xl text-purple-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Programming</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fab fa-python text-blue-500 mr-2"></i>Python (Advanced)</li>
-                        <li class="flex items-center"><i class="fas fa-database text-orange-500 mr-2"></i>SQL (Proficient)</li>
-                        <li class="flex items-center"><i class="fas fa-chart-line text-green-500 mr-2"></i>R (Statistics)</li>
-                        <li class="flex items-center"><i class="fas fa-brain text-purple-500 mr-2"></i>Machine Learning</li>
-                    </ul>
-                </div>
-
-                <!-- Data Visualization -->
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-chart-bar text-4xl text-blue-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Data Visualization</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-chart-pie text-yellow-500 mr-2"></i>Power BI (Advanced)</li>
-                        <li class="flex items-center"><i class="fas fa-chart-area text-blue-500 mr-2"></i>Tableau (Intermediate)</li>
-                        <li class="flex items-center"><i class="fas fa-chart-line text-green-500 mr-2"></i>Matplotlib/Seaborn</li>
-                        <li class="flex items-center"><i class="fas fa-desktop text-purple-500 mr-2"></i>Dashboard Design</li>
-                    </ul>
-                </div>
-
-                <!-- Statistics & Analytics -->
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-calculator text-4xl text-green-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Statistics & Analytics</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-chart-line text-red-500 mr-2"></i>Statistical Analysis</li>
-                        <li class="flex items-center"><i class="fas fa-search text-blue-500 mr-2"></i>Hypothesis Testing</li>
-                        <li class="flex items-center"><i class="fas fa-cogs text-gray-500 mr-2"></i>SPSS (Learning)</li>
-                        <li class="flex items-center"><i class="fas fa-robot text-purple-500 mr-2"></i>Predictive Modeling</li>
-                    </ul>
-                </div>
-
-                <!-- Tools & Technologies -->
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-tools text-4xl text-orange-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Tools & Technologies</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-code text-green-500 mr-2"></i>PyCharm IDE</li>
-                        <li class="flex items-center"><i class="fab fa-python text-blue-500 mr-2"></i>Anaconda</li>
-                        <li class="flex items-center"><i class="fas fa-cloud text-orange-500 mr-2"></i>AWS (Basic)</li>
-                        <li class="flex items-center"><i class="fab fa-git-alt text-gray-500 mr-2"></i>Git & GitHub</li>
-                    </ul>
-                </div>
-
-                <!-- Machine Learning -->
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-brain text-4xl text-red-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Machine Learning</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-cogs text-blue-500 mr-2"></i>Scikit-learn</li>
-                        <li class="flex items-center"><i class="fas fa-adjust text-purple-500 mr-2"></i>Hyperparameter Tuning</li>
-                        <li class="flex items-center"><i class="fas fa-language text-green-500 mr-2"></i>NLP (Basic)</li>
-                        <li class="flex items-center"><i class="fas fa-search text-orange-500 mr-2"></i>Optuna</li>
-                    </ul>
-                </div>
-
-                <!-- Future Learning -->
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md">
-                    <div class="text-center mb-4">
-                        <i class="fas fa-rocket text-4xl text-indigo-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Learning Next</h3>
-                    </div>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas fa-chart-bar text-blue-500 mr-2"></i>Looker</li>
-                        <li class="flex items-center"><i class="fas fa-comment text-green-500 mr-2"></i>Prompt Engineering</li>
-                        <li class="flex items-center"><i class="fas fa-cloud text-orange-500 mr-2"></i>Advanced AWS</li>
-                        <li class="flex items-center"><i class="fas fa-certificate text-purple-500 mr-2"></i>Certifications</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Featured Projects</h2>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Crime Rate Analysis -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-shield-alt text-3xl text-red-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">Crime Rate Analysis</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">Machine learning website predicting crime rates by city/state to help users assess area safety. Built with Python and advanced ML algorithms.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Machine Learning</span>
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Predictive Modeling</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Target: Reported_Cases</span>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fab fa-github"></i></a>
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Olympics Analytics -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-medal text-3xl text-yellow-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">Olympics Analytics Dashboard</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">Comprehensive SQL analysis and Power BI dashboard of Olympic games data. Featured on resume and LinkedIn for portfolio showcase.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">SQL</span>
-                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Power BI</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Data Visualization</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Sports Analytics</span>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fab fa-github"></i></a>
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- IPL Dashboard -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-cricket text-3xl text-blue-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">IPL Analytics Dashboard</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">Interactive Power BI dashboard analyzing IPL cricket data with player statistics, team performance, and match insights.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Power BI</span>
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Sports Analytics</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Dashboard Design</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Cricket Analytics</span>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fab fa-github"></i></a>
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- E-commerce Dashboard -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-shopping-cart text-3xl text-green-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">E-commerce Analytics</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">Power BI visualization project analyzing e-commerce sales data, customer behavior, and business performance metrics.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Power BI</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Business Analytics</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Sales Analysis</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Business Intelligence</span>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fab fa-github"></i></a>
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tableau Project -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-chart-line text-3xl text-indigo-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">Tableau Public Dashboard</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">First professional Tableau project published on Tableau Public and shared on LinkedIn for professional networking.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Tableau</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Data Visualization</span>
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Public Portfolio</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Published on Tableau Public</span>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NLP Website -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <i class="fas fa-language text-3xl text-purple-600 mr-3"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">NLP Web Application</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">Natural Language Processing website with text analysis features. Built to explore NLP capabilities and web development skills.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">NLP</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Web Development</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Text Analysis</span>
-                            <div class="flex space-x-2">
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fab fa-github"></i></a>
-                                <a href="#" class="text-purple-600 hover:text-purple-800"><i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Education</h2>
-            </div>
-            <div class="max-w-4xl mx-auto">
-                <div class="relative">
-                    <div class="absolute left-4 top-0 bottom-0 w-px bg-purple-200"></div>
-                    
-                    <!-- Current Education -->
-                    <div class="relative flex items-start mb-8">
-                        <div class="bg-purple-600 w-8 h-8 rounded-full flex items-center justify-center relative z-10">
-                            <i class="fas fa-graduation-cap text-white text-sm"></i>
-                        </div>
-                        <div class="ml-6 bg-white p-6 rounded-lg shadow-md flex-1">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-semibold text-gray-800">Master of Science in Statistics</h3>
-                                <span class="text-sm text-purple-600 font-medium">Current</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Banaras Hindu University (BHU), Varanasi</p>
-                            <p class="text-gray-500 text-sm">Advanced statistical analysis, machine learning, and data science methodologies</p>
-                        </div>
-                    </div>
-
-                    <!-- Previous Education -->
-                    <div class="relative flex items-start">
-                        <div class="bg-gray-400 w-8 h-8 rounded-full flex items-center justify-center relative z-10">
-                            <i class="fas fa-graduation-cap text-white text-sm"></i>
-                        </div>
-                        <div class="ml-6 bg-white p-6 rounded-lg shadow-md flex-1">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-semibold text-gray-800">Bachelor of Science in Statistics (Hons)</h3>
-                                <span class="text-sm text-gray-600 font-medium">Completed</span>
-                            </div>
-                            <p class="text-gray-600 mb-2">Banaras Hindu University (BHU), Varanasi</p>
-                            <p class="text-gray-500 text-sm">Foundation in statistical theory, probability, and quantitative analysis</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 gradient-bg text-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
-                <p class="text-xl opacity-90">Ready to discuss data science opportunities and collaborations</p>
-            </div>
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-6">Get in Touch</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-2xl mr-4"></i>
-                                <div>
-                                    <p class="font-medium">Email</p>
-                                    <p class="opacity-80"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fa8a8893839b9489928fd48993949d92ba9f979b9396d4999597">[email&#160;protected]</a></p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fab fa-linkedin text-2xl mr-4"></i>
-                                <div>
-                                    <p class="font-medium">LinkedIn</p>
-                                    <p class="opacity-80">linkedin.com/in/priyanshu-singh</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fab fa-github text-2xl mr-4"></i>
-                                <div>
-                                    <p class="font-medium">GitHub</p>
-                                    <p class="opacity-80">github.com/priyanshu-singh</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-map-marker-alt text-2xl mr-4"></i>
-                                <div>
-                                    <p class="font-medium">Location</p>
-                                    <p class="opacity-80">Varanasi, India</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white bg-opacity-10 p-8 rounded-lg backdrop-blur-sm">
-                        <h3 class="text-2xl font-semibold mb-6">Career Interests</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle mr-3 text-green-300"></i>
-                                <span>Data Analyst Positions</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle mr-3 text-green-300"></i>
-                                <span>Data Science Roles</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle mr-3 text-green-300"></i>
-                                <span>Business Intelligence</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle mr-3 text-green-300"></i>
-                                <span>Machine Learning Projects</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle mr-3 text-green-300"></i>
-                                <span>Statistical Analysis</span>
-                            </li>
-                        </ul>
-                        <div class="mt-8 text-center">
-                            <p class="text-lg font-medium">Open to Campus Placements</p>
-                            <p class="opacity-80">Available for internships and full-time positions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold mb-4">Priyanshu Singh</h3>
-                <p class="text-gray-400 mb-6">Data Analyst | M.Sc. Statistics | Machine Learning Enthusiast</p>
-                <div class="flex justify-center space-x-6 mb-8">
-                    <a href="#" class="text-gray-400 hover:text-white transition text-2xl">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition text-2xl">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition text-2xl">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition text-2xl">
-                        <i class="fab fa-tableau"></i>
-                    </a>
-                </div>
-                <div class="border-t border-gray-700 pt-8">
-                    <p class="text-gray-400 text-sm">
-                        © 2024 Priyanshu Singh. All rights reserved. | Transforming data into insights, one project at a time.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
+</body>
+</html>
