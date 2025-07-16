@@ -1,76 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Me - Fun Version</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
-      text-align: center;
-      padding-top: 100px;
-      min-height: 100vh;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-    }
-    .face {
-      display: inline-block;
-      margin-top: 50px;
-      font-size: 10rem;
-      position: relative;
-      animation: bounce 2s infinite;
-    }
-    .eyes {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      font-size: 4rem;
-    }
-    .eye {
-      animation: blink 3s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { transform: scaleY(1); }
-      50% { transform: scaleY(0.1); }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-    h1 {
-      font-size: 3rem;
-      margin-top: 20px;
-    }
-    p {
-      max-width: 600px;
-      margin: 20px auto;
-      font-size: 1.2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Priyanshu Singh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Using a more descriptive font-family name */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* A slightly off-white background */
+            color: #1a202c; /* Darker text for better readability */
+        }
+
+        /* Animation for sections fading in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-section {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Custom styles for the header to match the screenshot */
+        .header-custom {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Custom styles for navigation links */
+        .nav-link {
+            transition: color 0.3s ease;
+            color: #4a5568; /* A mid-gray for nav links */
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #4f46e5; /* A vibrant purple for hover/active state */
+        }
+        
+        /* Custom button style to match the screenshot */
+        .download-cv-btn {
+            background-color: #4f46e5;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .download-cv-btn:hover {
+            background-color: #4338ca;
+        }
+
+        /* Custom styling for skill cards */
+        .skill-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-  </nav>
+    <!-- Header / Navigation Bar -->
+    <!-- This section is designed to be consistent with your homepage navigation -->
+    <header class="header-custom sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <a href="index.html" class="text-2xl font-bold text-gray-800">Priyanshu Singh</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link font-medium">Home</a>
+                <a href="about.html" class="nav-link font-medium active border-b-2 border-indigo-600 pb-1">About</a>
+                <a href="projects.html" class="nav-link font-medium">Projects</a>
+                <a href="contact.html" class="nav-link font-medium">Contact</a>
+            </div>
+            <div>
+                <!-- Make sure your CV file is named 'Priyanshu_Singh_CV.pdf' and is in the same folder -->
+                <a href="Priyanshu_Singh_CV.pdf" download class="download-cv-btn font-bold py-2 px-4 rounded-lg flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Download CV</span>
+                </a>
+            </div>
+        </nav>
+    </header>
 
-  <h1>Hey there! 👋</h1>
-  <p>I'm Priyanshu Singh, and yes, this is my slightly crazy About page. Why not have some fun while we’re at it?</p>
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
 
-  <div class="face">
-    <div class="eyes">
-      <div class="eye">👁️</div>
-      <div class="eye">👁️</div>
-    </div>
-    <div style="font-size:5rem; margin-top:20px;">😄</div>
-  </div>
+        <!-- About Me Section -->
+        <section class="fade-in-section flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <!-- Profile Image Placeholder -->
+            <div class="w-full lg:w-1/3 flex justify-center">
+                <!-- IMPORTANT: Replace this placeholder with your actual photo -->
+                <img src="https://placehold.co/400x400/6366f1/ffffff?text=Priyanshu" alt="Priyanshu Singh" class="rounded-full h-64 w-64 lg:h-80 lg:w-80 object-cover shadow-2xl border-4 border-white">
+            </div>
+
+            <!-- About Me Text -->
+            <div class="w-full lg:w-2/3">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">About Me</h1>
+                <p class="text-lg text-gray-600 mb-6">
+                    Hello! I'm Priyanshu, a passionate and detail-oriented Data Analyst and Machine Learning enthusiast. I am currently pursuing my Master's in Statistics from Banaras Hindu University (BHU), where I also completed my Bachelor's degree.
+                </p>
+                <p class="text-lg text-gray-600 mb-6">
+                    My journey in statistics is driven by a deep curiosity for uncovering the stories hidden within data. I thrive on transforming complex datasets into actionable insights and building predictive models that solve real-world problems. I believe that the future lies in the synergy between strong statistical fundamentals and cutting-edge technology.
+                </p>
+                <p class="text-lg text-gray-600">
+                    When I'm not crunching numbers, you can find me following cricket, exploring new data visualization techniques, or working on my next creative project.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="fade-in-section mt-24">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">My Education</h2>
+            <div class="max-w-2xl mx-auto border-l-2 border-indigo-200 pl-8">
+                <!-- M.Sc. Statistics -->
+                <div class="mb-12 relative">
+                    <div class="absolute -left-10 w-6 h-6 bg-indigo-600 rounded-full mt-1.5"></div>
+                    <h3 class="text-xl font-semibold text-gray-900">M.Sc. in Statistics</h3>
+                    <p class="text-indigo-600 font-medium">Banaras Hindu University (BHU), Varanasi</p>
+                    <p class="text-gray-500 text-sm">2023 - Present</p>
+                    <p class="text-gray-600 mt-2">Focusing on advanced statistical modeling, machine learning algorithms, and stochastic processes. Preparing for a career in data science.</p>
+                </div>
+                <!-- B.Sc. Statistics -->
+                <div class="relative">
+                    <div class="absolute -left-10 w-6 h-6 bg-indigo-600 rounded-full mt-1.5"></div>
+                    <h3 class="text-xl font-semibold text-gray-900">B.Sc. Statistics (Hons)</h3>
+                    <p class="text-indigo-600 font-medium">Banaras Hindu University (BHU), Varanasi</p>
+                    <p class="text-gray-500 text-sm">2020 - 2023</p>
+                    <p class="text-gray-600 mt-2">Built a strong foundation in statistical theory, probability, and data analysis, which sparked my passion for the field.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="fade-in-section mt-24">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">My Toolkit</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Programming & Analysis -->
+                <div class="skill-card bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Programming & Analysis</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Python (Pandas, NumPy, Scikit-learn)</li>
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> SQL</li>
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Prompt Engineering</li>
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Git & GitHub</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2: BI & Visualization -->
+                <div class="skill-card bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">BI & Visualization</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Power BI (including DAX)</li>
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Tableau</li>
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Matplotlib & Seaborn</li>
+                    </ul>
+                </div>
+                
+                <!-- Card 3: Machine Learning -->
+                <div class="skill-card bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Machine Learning</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Linear & Logistic Regression</li>
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Decision Trees & Random Forest</li>
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Clustering (K-Means)</li>
+                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Exploring Deep Learning (RNNs)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p>&copy; 2025 Priyanshu Singh. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Designed with passion and a love for data.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
