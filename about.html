@@ -7,190 +7,608 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Using a more descriptive font-family name */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; /* A slightly off-white background */
-            color: #1a202c; /* Darker text for better readability */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Animation for sections fading in */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
-        .fade-in-section {
-            animation: fadeIn 0.8s ease-out forwards;
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
         }
 
-        /* Custom styles for the header to match the screenshot */
-        .header-custom {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
 
-        /* Custom styles for navigation links */
+        /* Glassmorphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animated gradient text */
+        .gradient-text {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Morphing profile image */
+        .profile-morph {
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+            transition: clip-path 0.5s ease-in-out;
+        }
+
+        .profile-morph:hover {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+        }
+
+        /* Skill bars with animation */
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            border-radius: 4px;
+            transform: translateX(-100%);
+            transition: transform 2s ease-out;
+        }
+
+        .skill-progress.animate {
+            transform: translateX(0);
+        }
+
+        /* Floating elements */
+        .float-1 { animation: floatY 4s ease-in-out infinite; }
+        .float-2 { animation: floatY 4s ease-in-out infinite 0.5s; }
+        .float-3 { animation: floatY 4s ease-in-out infinite 1s; }
+
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Timeline glow effect */
+        .timeline-dot {
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(79, 70, 229, 0.6); }
+            50% { box-shadow: 0 0 30px rgba(79, 70, 229, 0.8), 0 0 40px rgba(79, 70, 229, 0.4); }
+        }
+
+        /* Interactive cards */
+        .interactive-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .interactive-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid rgba(255, 255, 255, 0.7);
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: rgba(255, 255, 255, 0.7) }
+        }
+
+        /* Progress circle */
+        .progress-circle {
+            transform: rotate(-90deg);
+        }
+
+        .progress-circle circle {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            transition: stroke-dashoffset 2s ease-in-out;
+        }
+
+        /* Navigation animations */
         .nav-link {
-            transition: color 0.3s ease;
-            color: #4a5568; /* A mid-gray for nav links */
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #4f46e5; /* A vibrant purple for hover/active state */
-        }
-        
-        /* Custom button style to match the screenshot */
-        .download-cv-btn {
-            background-color: #4f46e5;
-            color: white;
-            transition: background-color 0.3s ease;
-        }
-        .download-cv-btn:hover {
-            background-color: #4338ca;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Custom styling for skill cards */
-        .skill-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            transition: left 0.3s ease;
         }
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+        .nav-link:hover::before {
+            left: 0;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
+    <!-- Animated particles background -->
+    <div class="particles" id="particles"></div>
 
-    <!-- Header / Navigation Bar -->
-    <!-- This section is designed to be consistent with your homepage navigation -->
-    <header class="header-custom sticky top-0 z-50">
+    <!-- Header with glassmorphism -->
+    <header class="glass sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div>
-                <a href="index.html" class="text-2xl font-bold text-gray-800">Priyanshu Singh</a>
+                <a href="index.html" class="text-2xl font-bold text-white gradient-text">Priyanshu Singh</a>
             </div>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="nav-link font-medium">Home</a>
-                <a href="about.html" class="nav-link font-medium active border-b-2 border-indigo-600 pb-1">About</a>
-                <a href="projects.html" class="nav-link font-medium">Projects</a>
-                <a href="contact.html" class="nav-link font-medium">Contact</a>
+                <a href="index.html" class="nav-link font-medium text-white hover:text-yellow-300 transition-colors">Home</a>
+                <a href="about.html" class="nav-link font-medium text-yellow-300">About</a>
+                <a href="projects.html" class="nav-link font-medium text-white hover:text-yellow-300 transition-colors">Projects</a>
+                <a href="contact.html" class="nav-link font-medium text-white hover:text-yellow-300 transition-colors">Contact</a>
             </div>
             <div>
-                <!-- Make sure your CV file is named 'Priyanshu_Singh_CV.pdf' and is in the same folder -->
-                <a href="Priyanshu_Singh_CV.pdf" download class="download-cv-btn font-bold py-2 px-4 rounded-lg flex items-center space-x-2">
+                <button class="glass text-white font-bold py-3 px-6 rounded-full hover:scale-105 transition-transform flex items-center space-x-2" onclick="downloadCV()">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                     <span>Download CV</span>
-                </a>
+                </button>
             </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-16">
+    <main class="container mx-auto px-6 py-16 relative">
+        <!-- Hero Section with Typewriter Effect -->
+        <section class="text-center mb-20">
+            <h1 class="text-6xl md:text-7xl font-bold text-white mb-4 typewriter" id="typewriterText">Data Storyteller</h1>
+            <p class="text-xl text-white/80 max-w-2xl mx-auto">Transforming complex data into actionable insights through the power of statistics and machine learning</p>
+        </section>
 
-        <!-- About Me Section -->
-        <section class="fade-in-section flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            <!-- Profile Image Placeholder -->
+        <!-- About Me Section with Interactive Elements -->
+        <section class="flex flex-col lg:flex-row items-center gap-16 lg:gap-20 mb-24">
+            <!-- Interactive Profile Image -->
             <div class="w-full lg:w-1/3 flex justify-center">
-                <!-- IMPORTANT: Replace this placeholder with your actual photo -->
-                <img src="https://placehold.co/400x400/6366f1/ffffff?text=Priyanshu" alt="Priyanshu Singh" class="rounded-full h-64 w-64 lg:h-80 lg:w-80 object-cover shadow-2xl border-4 border-white">
-            </div>
-
-            <!-- About Me Text -->
-            <div class="w-full lg:w-2/3">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">About Me</h1>
-                <p class="text-lg text-gray-600 mb-6">
-                    Hello! I'm Priyanshu, a passionate and detail-oriented Data Analyst and Machine Learning enthusiast. I am currently pursuing my Master's in Statistics from Banaras Hindu University (BHU), where I also completed my Bachelor's degree.
-                </p>
-                <p class="text-lg text-gray-600 mb-6">
-                    My journey in statistics is driven by a deep curiosity for uncovering the stories hidden within data. I thrive on transforming complex datasets into actionable insights and building predictive models that solve real-world problems. I believe that the future lies in the synergy between strong statistical fundamentals and cutting-edge technology.
-                </p>
-                <p class="text-lg text-gray-600">
-                    When I'm not crunching numbers, you can find me following cricket, exploring new data visualization techniques, or working on my next creative project.
-                </p>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section class="fade-in-section mt-24">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">My Education</h2>
-            <div class="max-w-2xl mx-auto border-l-2 border-indigo-200 pl-8">
-                <!-- M.Sc. Statistics -->
-                <div class="mb-12 relative">
-                    <div class="absolute -left-10 w-6 h-6 bg-indigo-600 rounded-full mt-1.5"></div>
-                    <h3 class="text-xl font-semibold text-gray-900">M.Sc. in Statistics</h3>
-                    <p class="text-indigo-600 font-medium">Banaras Hindu University (BHU), Varanasi</p>
-                    <p class="text-gray-500 text-sm">2023 - Present</p>
-                    <p class="text-gray-600 mt-2">Focusing on advanced statistical modeling, machine learning algorithms, and stochastic processes. Preparing for a career in data science.</p>
-                </div>
-                <!-- B.Sc. Statistics -->
                 <div class="relative">
-                    <div class="absolute -left-10 w-6 h-6 bg-indigo-600 rounded-full mt-1.5"></div>
-                    <h3 class="text-xl font-semibold text-gray-900">B.Sc. Statistics (Hons)</h3>
-                    <p class="text-indigo-600 font-medium">Banaras Hindu University (BHU), Varanasi</p>
-                    <p class="text-gray-500 text-sm">2020 - 2023</p>
-                    <p class="text-gray-600 mt-2">Built a strong foundation in statistical theory, probability, and data analysis, which sparked my passion for the field.</p>
+                    <img src="https://placehold.co/400x400/6366f1/ffffff?text=Priyanshu" 
+                         alt="Priyanshu Singh" 
+                         class="profile-morph rounded-3xl h-72 w-72 lg:h-96 lg:w-96 object-cover shadow-2xl float-1"
+                         onmouseover="this.style.filter='brightness(1.2) contrast(1.1)'"
+                         onmouseout="this.style.filter='brightness(1) contrast(1)'">
+                    <!-- Floating decorative elements -->
+                    <div class="absolute -top-6 -right-6 w-12 h-12 bg-yellow-400/30 rounded-full blur-sm float-2"></div>
+                    <div class="absolute -bottom-4 -left-4 w-8 h-8 bg-pink-400/30 rounded-full blur-sm float-3"></div>
+                </div>
+            </div>
+
+            <!-- About Text with Animations -->
+            <div class="w-full lg:w-2/3">
+                <div class="glass p-8 rounded-3xl">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 gradient-text">About Me</h2>
+                    <div class="space-y-4 text-white/90 text-lg leading-relaxed">
+                        <p class="opacity-0 animate-fade-in" style="animation-delay: 0.2s">
+                            Hello! I'm Priyanshu, a passionate and detail-oriented <span class="text-yellow-300 font-semibold">Data Analyst</span> and <span class="text-yellow-300 font-semibold">Machine Learning enthusiast</span>. I am currently pursuing my Master's in Statistics from Banaras Hindu University (BHU).
+                        </p>
+                        <p class="opacity-0 animate-fade-in" style="animation-delay: 0.4s">
+                            My journey in statistics is driven by a deep curiosity for uncovering the stories hidden within data. I thrive on transforming complex datasets into actionable insights and building predictive models that solve real-world problems.
+                        </p>
+                        <p class="opacity-0 animate-fade-in" style="animation-delay: 0.6s">
+                            When I'm not crunching numbers, you can find me following cricket 🏏, exploring new data visualization techniques, or working on my next creative project.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section class="fade-in-section mt-24">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">My Toolkit</h2>
+        <!-- Interactive Timeline -->
+        <section class="mb-24">
+            <h2 class="text-4xl font-bold text-center text-white mb-12 gradient-text">My Education Journey</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-pink-400 to-blue-400"></div>
+                    
+                    <!-- M.Sc. Statistics -->
+                    <div class="relative mb-16 cursor-pointer" onclick="animateEducationCard(this)">
+                        <div class="flex items-center justify-center">
+                            <div class="timeline-dot w-6 h-6 bg-blue-500 rounded-full relative z-10"></div>
+                        </div>
+                        <div class="glass p-8 rounded-3xl mt-8 ml-8 lg:ml-16 interactive-card">
+                            <h3 class="text-2xl font-bold text-white mb-2">M.Sc. in Statistics</h3>
+                            <p class="text-yellow-300 font-semibold text-lg">Banaras Hindu University (BHU), Varanasi</p>
+                            <p class="text-white/70 text-sm mb-3">2023 - Present</p>
+                            <p class="text-white/90">Focusing on advanced statistical modeling, machine learning algorithms, and stochastic processes. Preparing for a career in data science.</p>
+                            <!-- Progress bar -->
+                            <div class="mt-4">
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 60%"></div>
+                                </div>
+                                <p class="text-white/70 text-sm mt-1">60% Complete</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- B.Sc. Statistics -->
+                    <div class="relative cursor-pointer" onclick="animateEducationCard(this)">
+                        <div class="flex items-center justify-center">
+                            <div class="timeline-dot w-6 h-6 bg-green-500 rounded-full relative z-10"></div>
+                        </div>
+                        <div class="glass p-8 rounded-3xl mt-8 mr-8 lg:mr-16 interactive-card">
+                            <h3 class="text-2xl font-bold text-white mb-2">B.Sc. Statistics (Hons)</h3>
+                            <p class="text-yellow-300 font-semibold text-lg">Banaras Hindu University (BHU), Varanasi</p>
+                            <p class="text-white/70 text-sm mb-3">2020 - 2023</p>
+                            <p class="text-white/90">Built a strong foundation in statistical theory, probability, and data analysis, which sparked my passion for the field.</p>
+                            <!-- Completion badge -->
+                            <div class="mt-4 flex items-center">
+                                <span class="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm font-semibold">✓ Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Skills Section -->
+        <section class="mb-24">
+            <h2 class="text-4xl font-bold text-center text-white mb-12 gradient-text">My Toolkit</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Card 1: Programming & Analysis -->
-                <div class="skill-card bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Programming & Analysis</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Python (Pandas, NumPy, Scikit-learn)</li>
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> SQL</li>
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Prompt Engineering</li>
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Git & GitHub</li>
-                    </ul>
+                <!-- Programming & Analysis Card -->
+                <div class="glass interactive-card p-8 rounded-3xl relative overflow-hidden" onclick="animateSkillCard(this, ['Python', 'SQL', 'Prompt Engineering', 'Git & GitHub'])">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full -translate-y-10 translate-x-10"></div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Programming & Analysis</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-skill="Python">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white/90">Python</span>
+                                <span class="text-yellow-300 font-semibold">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="SQL">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white/90">SQL</span>
+                                <span class="text-yellow-300 font-semibold">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="Git">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white/90">Git & GitHub</span>
+                                <span class="text-yellow-300 font-semibold">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- Card 2: BI & Visualization -->
-                <div class="skill-card bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">BI & Visualization</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Power BI (including DAX)</li>
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Tableau</li>
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Matplotlib & Seaborn</li>
-                    </ul>
+
+                <!-- BI & Visualization Card -->
+                <div class="glass interactive-card p-8 rounded-3xl relative overflow-hidden" onclick="animateSkillCard(this, ['Power BI', 'Tableau', 'Matplotlib'])">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full -translate-y-10 translate-x-10"></div>
+                    <h3 class="text-2xl font-bold text-white mb-6">BI & Visualization</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white/90">Power BI</span>
+                                <span class="text-yellow-300 font-semibold">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white/90">Tableau</span>
+                                <span class="text-yellow-300 font-semibold">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white/90">Matplotlib</span>
+                                <span class="text-yellow-300 font-semibold">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- Card 3: Machine Learning -->
-                <div class="skill-card bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Machine Learning</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Linear & Logistic Regression</li>
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Decision Trees & Random Forest</li>
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Clustering (K-Means)</li>
-                        <li class="flex items-center"><span class="font-bold mr-2 text-indigo-600">✓</span> Exploring Deep Learning (RNNs)</li>
-                    </ul>
+
+                <!-- Machine Learning Card -->
+                <div class="glass interactive-card p-8 rounded-3xl relative overflow-hidden" onclick="animateSkillCard(this, ['Regression', 'Decision Trees', 'Clustering', 'Deep Learning'])">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-pink-400/20 to-red-400/20 rounded-full -translate-y-10 translate-x-10"></div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Machine Learning</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white/90">Regression Models</span>
+                                <span class="text-yellow-300 font-semibold">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white/90">Decision Trees</span>
+                                <span class="text-yellow-300 font-semibold">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white/90">Deep Learning</span>
+                                <span class="text-yellow-300 font-semibold">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Interactive Statistics Dashboard -->
+        <section class="mb-24">
+            <h2 class="text-4xl font-bold text-center text-white mb-12 gradient-text">By the Numbers</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="glass text-center p-8 rounded-3xl interactive-card" onclick="animateCounter(this, 50)">
+                    <div class="text-4xl font-bold text-yellow-300 mb-2" data-counter="50">0</div>
+                    <div class="text-white/80">Projects Completed</div>
+                </div>
+                <div class="glass text-center p-8 rounded-3xl interactive-card" onclick="animateCounter(this, 1000)">
+                    <div class="text-4xl font-bold text-blue-300 mb-2" data-counter="1000">0</div>
+                    <div class="text-white/80">Hours Coding</div>
+                </div>
+                <div class="glass text-center p-8 rounded-3xl interactive-card" onclick="animateCounter(this, 25)">
+                    <div class="text-4xl font-bold text-green-300 mb-2" data-counter="25">0</div>
+                    <div class="text-white/80">Data Models Built</div>
+                </div>
+                <div class="glass text-center p-8 rounded-3xl interactive-card" onclick="animateCounter(this, 95)">
+                    <div class="text-4xl font-bold text-pink-300 mb-2" data-counter="95">0</div>
+                    <div class="text-white/80">Accuracy Rate %</div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-white mt-16">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+    <!-- Footer with glassmorphism -->
+    <footer class="glass">
+        <div class="container mx-auto px-6 py-8 text-center text-white/70">
             <p>&copy; 2025 Priyanshu Singh. All Rights Reserved.</p>
-            <p class="text-sm mt-2">Designed with passion and a love for data.</p>
+            <p class="text-sm mt-2">Designed with passion and a love for data ❤️</p>
         </div>
     </footer>
 
-</body>
-</html>
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particles.appendChild(particle);
+            }
+        }
+
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            skillBars.forEach(bar => observer.observe(bar));
+        }
+
+        // Animate fade-in elements
+        function animateFadeIn() {
+            const style = document.createElement('style');
+            style.textContent = `
+                .animate-fade-in {
+                    opacity: 1 !important;
+                    animation: fadeInUp 0.8s ease-out forwards;
+                }
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            const fadeElements = document.querySelectorAll('.animate-fade-in');
+            fadeElements.forEach(el => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                }, parseInt(el.style.animationDelay) * 1000 || 0);
+            });
+        }
+
+        // Animate education cards
+        function animateEducationCard(card) {
+            card.style.transform = 'scale(1.05) rotateY(5deg)';
+            card.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.3)';
+            setTimeout(() => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            }, 300);
+        }
+
+        // Animate skill cards
+        function animateSkillCard(card, skills) {
+            const skillBars = card.querySelectorAll('.skill-progress');
+            skillBars.forEach((bar, index) => {
+                bar.style.transform = 'translateX(-100%)';
+                setTimeout(() => {
+                    bar.style.transform = 'translateX(0)';
+                }, index * 200);
+            });
+        }
+
+        // Animate counters
+        function animateCounter(element, target) {
+            const counter = element.querySelector('[data-counter]');
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                counter.textContent = Math.floor(current);
+            }, 16);
+        }
+
+        // Download CV function
+        function downloadCV() {
+            // Simulate CV download
+            const link = document.createElement('a');
+            link.href = 'data:text/plain;charset=utf-8,CV Download Simulated';
+            link.download = 'Priyanshu_Singh_CV.pdf';
+            link.click();
+        }
+
+        // Mouse trail effect
+        function createMouseTrail() {
+            let mouseX = 0, mouseY = 0;
+            let trail = [];
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function updateTrail() {
+                trail.unshift({ x: mouseX, y: mouseY });
+                if (trail.length > 10) trail.pop();
+
+                const existingTrail = document.querySelectorAll('.mouse-trail');
+                existingTrail.forEach(el => el.remove());
+
+                trail.forEach((pos, index) => {
+                    const dot = document.createElement('div');
+                    dot.className = 'mouse-trail';
+                    dot.style.cssText = `
+                        position: fixed;
+                        left: ${pos.x}px;
+                        top: ${pos.y}px;
+                        width: ${10 - index}px;
+                        height: ${10 - index}px;
+                        background: rgba(255, 255, 255, ${0.5 - index * 0.05});
+                        border-radius: 50%;
+                        pointer-events: none;
+                        z-index: 9999;
+                        transform: translate(-50%, -50%);
+                    `;
+                    document.body.appendChild(dot);
+                    
+                    setTimeout(() => dot.remove(), 100);
+                });
+
+                requestAnimationFrame(updateTrail);
+            }
+            updateTrail();
+        }
+
+        // Initialize all animations
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            animateSkillBars();
+            animateFadeIn();
+            createMouseTrail();
+            
+            // Auto-animate counters after a delay
+            setTimeout(() => {
+                document.querySelectorAll('.interactive-card[onclick*="animateCounter"]').forEach(card => {
+                    const target = parseInt(card.getAttribute('onclick').match(/\d+/)[0]);
+                    animateCounter(card, target);
+                });
+            }, 1000);
+        });
+
+        // Parallax scrolling effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.float-1, .float-2, .float-3');
+            
+            parallax.forEach((element, index) => {
+                const speed = (index + 1) * 0.5;
+                element.style.
