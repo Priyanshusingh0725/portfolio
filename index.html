@@ -1,555 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Priyanshu Singh - Data Analyst Portfolio</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; overflow-x: hidden; background: #0a0a0a; }
 
-    .animated-gradient {
-      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    .hero-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
       background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
+      animation: gradientFlow 15s ease infinite;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .particles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-
-    .particle {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(180deg); }
-    }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-
-    .glass-dark {
-      background: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .typewriter {
-      overflow: hidden;
-      border-right: 3px solid rgba(255, 255, 255, 0.8);
-      white-space: nowrap;
-      animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: rgba(255, 255, 255, 0.8) }
-    }
-
-    .text-gradient {
-      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: textGradientShift 3s ease infinite;
-    }
-
-    @keyframes textGradientShift {
+    @keyframes gradientFlow {
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
     }
 
-    .float-1 { animation: floatY 4s ease-in-out infinite; }
-    .float-2 { animation: floatY 4s ease-in-out infinite 1s; }
-    .float-3 { animation: floatY 4s ease-in-out infinite 2s; }
-
-    @keyframes floatY {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
+    .hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 7rem);
+      font-weight: 700;
+      background: linear-gradient(45deg, #fff, #ffd700, #fff, #00ffff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s ease-in-out infinite;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
     }
 
-    .project-card {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transition: left 0.6s;
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
     }
 
-    .project-card:hover::before {
-      left: 100%;
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .project-card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .skill-icon {
+    .project-card, .skill-card, .process-step {
       transition: all 0.3s ease;
+      cursor: pointer;
     }
 
-    .skill-icon:hover {
-      transform: scale(1.2) rotate(360deg);
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    .project-card:hover, .skill-card:hover, .process-step:hover {
+      transform: translateY(-8px);
     }
 
     .nav-link {
       position: relative;
-      overflow: hidden;
+      transition: color 0.3s;
     }
 
     .nav-link::after {
       content: '';
       position: absolute;
-      bottom: -2px;
-      left: -100%;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-      transition: left 0.3s ease;
-    }
-
-    .nav-link:hover::after {
+      bottom: -5px;
       left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      transition: width 0.3s;
     }
 
-    .pulse-dot {
-      animation: pulse 2s infinite;
+    .nav-link:hover::after { width: 100%; }
+
+    .thinking-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
-    }
-
-    .morph-1 {
-      clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 85%);
-      transition: clip-path 0.4s ease;
-    }
-
-    .morph-1:hover {
-      clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 0% 100%);
-    }
-
-    .card-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.3s ease;
-    }
-
-    .card-3d:hover {
-      transform: rotateX(5deg) rotateY(5deg);
-    }
-
-    .progress-bar {
-      height: 6px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
-      border-radius: 3px;
-      transform: translateX(-100%);
-      animation: fillProgress 2s ease-out forwards;
-    }
-
-    @keyframes fillProgress {
-      to { transform: translateX(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .success-notification {
+    .modal {
+      display: none;
       position: fixed;
-      top: 20px;
-      right: 20px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
       z-index: 1000;
-      padding: 16px 24px;
-      border-radius: 12px;
-      color: white;
-      font-weight: 500;
-      transform: translateX(400px);
-      opacity: 0;
-      transition: all 0.3s ease;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .success-notification.show {
-      transform: translateX(0);
-      opacity: 1;
-    }
+    .modal.active { display: flex; }
 
-    .success-notification.success {
-      background: rgba(34, 197, 94, 0.9);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-    }
-
-    .success-notification.error {
-      background: rgba(239, 68, 68, 0.9);
-      border: 1px solid rgba(239, 68, 68, 0.3);
+    .modal-content {
+      background: rgba(20, 20, 20, 0.98);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
     }
   </style>
 </head>
-
-<body class="bg-gray-900">
-  <div class="particles fixed inset-0 pointer-events-none" id="particles"></div>
-
-  <nav class="glass fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="text-xl font-bold text-white text-gradient hover:scale-105 transition-transform">
-        Priyanshu Singh
-      </a>
-      <div class="hidden md:flex space-x-8">
-        <a href="#home" class="nav-link text-white hover:text-yellow-300 transition-colors font-medium">Home</a>
-        <a href="#about" class="nav-link text-white hover:text-yellow-300 transition-colors font-medium">About</a>
-        <a href="#projects" class="nav-link text-white hover:text-yellow-300 transition-colors font-medium">Projects</a>
-        <a href="#contact" class="nav-link text-white hover:text-yellow-300 transition-colors font-medium">Contact</a>
+<body>
+  
+  <nav class="fixed w-full top-0 z-50 glass-strong">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="text-2xl font-bold text-white" style="font-family: 'Space Grotesk', sans-serif;">PS</div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link text-white font-medium">Home</a>
+          <a href="#about" class="nav-link text-white font-medium">About</a>
+          <a href="#approach" class="nav-link text-white font-medium">Approach</a>
+          <a href="#projects" class="nav-link text-white font-medium">Projects</a>
+          <a href="#contact" class="nav-link text-white font-medium">Contact</a>
+        </div>
+        <button onclick="downloadCV()" class="glass px-6 py-2 rounded-full text-white hover:bg-white hover:text-purple-900 transition-all">
+          <i class="fas fa-download mr-2"></i>Resume
+        </button>
       </div>
-      <button onclick="downloadCV()" class="glass text-white px-6 py-2 rounded-full hover:scale-105 transition-all duration-300 flex items-center space-x-2">
-        <i class="fas fa-download"></i>
-        <span>Download CV</span>
-      </button>
     </div>
   </nav>
 
-  <section id="home" class="animated-gradient min-h-screen flex items-center justify-center relative">
+  <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative pt-20">
     <div class="container mx-auto px-6 text-center relative z-10">
-      <div class="glass p-12 rounded-3xl max-w-4xl mx-auto">
-        <div class="mb-8">
-          <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">
-            Hi, I'm <span class="text-gradient">Priyanshu Singh</span>
-          </h1>
-          <div class="typewriter text-2xl md:text-3xl text-white mb-6 mx-auto" style="width: fit-content;">
-            Data Analyst & Machine Learning Engineer
-          </div>
-          <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            I transform raw data into actionable insights using Python, SQL, Machine Learning & Advanced Analytics
+      <div class="thinking-badge text-white mb-6">
+        <i class="fas fa-brain mr-2"></i>DATA-DRIVEN THINKER
+      </div>
+      
+      <h1 class="hero-name mb-6">PRIYANSHU<br/>SINGH</h1>
+      
+      <p class="text-xl md:text-2xl text-white mb-4 font-medium">
+        Data Analyst & Machine Learning Engineer
+      </p>
+      
+      <p class="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+        Transforming complex datasets into strategic business insights through advanced analytics, 
+        statistical modeling, and machine learning innovation
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-6 mb-12">
+        <div class="glass p-4 rounded-xl">
+          <i class="fab fa-python text-4xl text-yellow-400"></i>
+          <p class="text-white text-sm mt-2">Python</p>
+        </div>
+        <div class="glass p-4 rounded-xl">
+          <i class="fas fa-database text-4xl text-blue-400"></i>
+          <p class="text-white text-sm mt-2">SQL</p>
+        </div>
+        <div class="glass p-4 rounded-xl">
+          <i class="fas fa-chart-line text-4xl text-green-400"></i>
+          <p class="text-white text-sm mt-2">Analytics</p>
+        </div>
+        <div class="glass p-4 rounded-xl">
+          <i class="fas fa-brain text-4xl text-purple-400"></i>
+          <p class="text-white text-sm mt-2">ML/AI</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a href="#projects" class="glass-strong px-8 py-4 rounded-full text-white font-semibold hover:scale-105 transition-all inline-flex items-center justify-center">
+          <span>View Projects</span>
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <a href="#contact" class="glass-strong px-8 py-4 rounded-full text-white font-semibold hover:scale-105 transition-all inline-flex items-center justify-center">
+          <span>Get in Touch</span>
+          <i class="fas fa-envelope ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">About Me</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div class="glass p-8 rounded-3xl">
+          <h3 class="text-3xl font-bold text-white mb-4">Data Analyst & ML Engineer</h3>
+          <p class="text-gray-300 text-lg leading-relaxed mb-4">
+            Currently pursuing <span class="text-purple-400 font-semibold">M.Sc. Statistics at BHU (Banaras Hindu University)</span>, 
+            I specialize in extracting actionable insights from complex datasets and building predictive models that drive business decisions.
           </p>
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            Based in <span class="text-purple-400 font-semibold">Varanasi, India</span>, I combine statistical rigor with 
+            modern machine learning techniques to solve real-world problems.
+          </p>
+
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-gray-300 mb-2">
+                <span class="font-medium">Python & Machine Learning</span>
+                <span class="text-purple-400 font-bold">92%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-3">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full" style="width: 92%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-300 mb-2">
+                <span class="font-medium">SQL & Database Analytics</span>
+                <span class="text-purple-400 font-bold">88%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-3">
+                <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-3 rounded-full" style="width: 88%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-300 mb-2">
+                <span class="font-medium">Statistical Analysis</span>
+                <span class="text-purple-400 font-bold">90%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-3">
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-3 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="flex justify-center space-x-8 mb-8">
-          <div class="skill-icon float-1 glass p-4 rounded-full">
-            <i class="fab fa-python text-3xl text-yellow-400"></i>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all">
+            <i class="fas fa-project-diagram text-5xl text-purple-400 mb-4"></i>
+            <h4 class="text-2xl font-bold text-white mb-2">5+</h4>
+            <p class="text-gray-300">Projects Completed</p>
           </div>
-          <div class="skill-icon float-2 glass p-4 rounded-full">
-            <i class="fas fa-database text-3xl text-blue-400"></i>
+          <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all">
+            <i class="fas fa-code text-5xl text-blue-400 mb-4"></i>
+            <h4 class="text-2xl font-bold text-white mb-2">15+</h4>
+            <p class="text-gray-300">ML Models Built</p>
           </div>
-          <div class="skill-icon float-3 glass p-4 rounded-full">
-            <i class="fas fa-chart-bar text-3xl text-green-400"></i>
+          <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all">
+            <i class="fas fa-database text-5xl text-green-400 mb-4"></i>
+            <h4 class="text-2xl font-bold text-white mb-2">1M+</h4>
+            <p class="text-gray-300">Rows Analyzed</p>
           </div>
-          <div class="skill-icon float-1 glass p-4 rounded-full" style="animation-delay: 0.5s;">
-            <i class="fas fa-brain text-3xl text-purple-400"></i>
+          <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all">
+            <i class="fas fa-chart-bar text-5xl text-pink-400 mb-4"></i>
+            <h4 class="text-2xl font-bold text-white mb-2">90%</h4>
+            <p class="text-gray-300">Model Accuracy</p>
           </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-          <button onclick="scrollToSection('projects')" class="glass px-8 py-3 rounded-full text-white font-semibold hover:scale-105 transition-all duration-300 flex items-center space-x-2">
-            <span>View My Work</span>
-            <i class="fas fa-arrow-down"></i>
-          </button>
-          <button onclick="scrollToSection('contact')" class="glass px-8 py-3 rounded-full text-white font-semibold hover:scale-105 transition-all duration-300 flex items-center space-x-2">
-            <span>Let's Connect</span>
-            <i class="fas fa-handshake"></i>
-          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="py-20 bg-gray-900 relative">
+  <section id="approach" class="py-20 bg-black">
     <div class="container mx-auto px-6">
-      <div class="reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-12">
-          About <span class="text-gradient">Me</span>
-        </h2>
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">My Analytics Framework</h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">A systematic approach to transforming data into actionable insights</p>
       </div>
-      
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="reveal flex justify-center lg:justify-end">
-          <div class="relative">
-            <img src="https://placehold.co/400x500/6366f1/ffffff?text=Priyanshu" 
-                 alt="Priyanshu Singh" 
-                 class="morph-1 w-80 h-96 object-cover shadow-2xl hover:scale-105 transition-transform duration-500">
-            <div class="absolute -top-6 -right-6 w-12 h-12 bg-yellow-400/30 rounded-full blur-sm float-2"></div>
-            <div class="absolute -bottom-4 -left-4 w-8 h-8 bg-pink-400/30 rounded-full blur-sm float-3"></div>
+
+      <div class="grid md:grid-cols-5 gap-8 max-w-6xl mx-auto mb-16">
+        <div class="process-step glass p-6 rounded-2xl text-center" onclick="showModal('Question', 'Every great analysis starts with the right questions. I work closely with stakeholders to define clear objectives, identify key metrics, and formulate testable hypotheses that guide the investigation.')">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+            <i class="fas fa-lightbulb text-3xl text-white"></i>
           </div>
+          <h4 class="text-white font-bold text-lg mb-2">Question</h4>
+          <p class="text-gray-400 text-sm">Define objectives</p>
         </div>
 
-        <div class="reveal">
-          <div class="glass p-8 rounded-3xl">
-            <h3 class="text-2xl font-bold text-white mb-6">Data Analyst & ML Engineer</h3>
-            <p class="text-white/90 text-lg leading-relaxed mb-6">
-              Currently pursuing <span class="text-yellow-300 font-semibold">M.Sc. Statistics at BHU (Banaras Hindu University)</span>. 
-              I'm passionate about solving real-world problems through data-driven insights and machine learning solutions.
-              Based in <span class="text-yellow-300 font-semibold">Varanasi, India</span>.
-            </p>
-            
-            <div class="space-y-4">
-              <div>
-                <div class="flex justify-between text-white/80 mb-2">
-                  <span>Python & Machine Learning</span>
-                  <span>92%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 92%; animation-delay: 0.5s;"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-white/80 mb-2">
-                  <span>SQL & Database Analytics</span>
-                  <span>88%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 88%; animation-delay: 1s;"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-white/80 mb-2">
-                  <span>Statistical Analysis & Research</span>
-                  <span>90%</span>
-                </div>
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 90%; animation-delay: 1.5s;"></div>
-                </div>
-              </div>
-            </div>
+        <div class="process-step glass p-6 rounded-2xl text-center" onclick="showModal('Collect', 'Data collection is about quality, not just quantity. I extract data from multiple sources (SQL databases, APIs, web scraping) ensuring relevance, accuracy, and completeness for robust analysis.')">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+            <i class="fas fa-database text-3xl text-white"></i>
           </div>
+          <h4 class="text-white font-bold text-lg mb-2">Collect</h4>
+          <p class="text-gray-400 text-sm">Gather data</p>
+        </div>
+
+        <div class="process-step glass p-6 rounded-2xl text-center" onclick="showModal('Clean', 'Garbage in, garbage out. I meticulously handle missing values, remove duplicates, detect outliers, and ensure data consistency using Python and Pandas - the foundation of reliable analysis.')">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center">
+            <i class="fas fa-broom text-3xl text-white"></i>
+          </div>
+          <h4 class="text-white font-bold text-lg mb-2">Clean</h4>
+          <p class="text-gray-400 text-sm">Process & validate</p>
+        </div>
+
+        <div class="process-step glass p-6 rounded-2xl text-center" onclick="showModal('Analyze', 'Where data meets intelligence. I apply statistical tests, build ML models, and uncover hidden patterns using regression, classification, clustering, and hypothesis testing to extract meaningful insights.')">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+            <i class="fas fa-brain text-3xl text-white"></i>
+          </div>
+          <h4 class="text-white font-bold text-lg mb-2">Analyze</h4>
+          <p class="text-gray-400 text-sm">Extract insights</p>
+        </div>
+
+        <div class="process-step glass p-6 rounded-2xl text-center" onclick="showModal('Communicate', 'Data storytelling at its finest. I create compelling visualizations and interactive dashboards that transform complex statistical findings into clear, actionable business recommendations.')">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+            <i class="fas fa-chart-pie text-3xl text-white"></i>
+          </div>
+          <h4 class="text-white font-bold text-lg mb-2">Communicate</h4>
+          <p class="text-gray-400 text-sm">Present findings</p>
         </div>
       </div>
 
-      <div class="mt-20 reveal">
-        <h3 class="text-3xl font-bold text-center text-white mb-12">
-          My <span class="text-gradient">Analytics Approach</span>
-        </h3>
-        
-        <div class="grid md:grid-cols-5 gap-6 relative">
-          <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-30" style="transform: translateY(-50%);"></div>
-          
-          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Ask the Right Questions', 'Every analysis begins with curiosity. I identify business problems, define clear objectives, and formulate hypotheses that guide the investigation.')">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-              <i class="fas fa-question text-2xl text-white"></i>
-            </div>
-            <h4 class="text-white font-bold mb-2">Question</h4>
-            <p class="text-white/70 text-sm">Define the problem</p>
-          </div>
-
-          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Data Collection & Extraction', 'I gather data from multiple sources using SQL queries, APIs, and web scraping. Quality over quantity - ensuring data relevance and reliability.')">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
-              <i class="fas fa-database text-2xl text-white"></i>
-            </div>
-            <h4 class="text-white font-bold mb-2">Collect</h4>
-            <p class="text-white/70 text-sm">Gather & extract data</p>
-          </div>
-
-          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Data Cleaning & Preprocessing', 'The foundation of good analysis. I handle missing values, remove duplicates, detect outliers, and ensure data consistency using Python and Pandas.')">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center">
-              <i class="fas fa-broom text-2xl text-white"></i>
-            </div>
-            <h4 class="text-white font-bold mb-2">Clean</h4>
-            <p class="text-white/70 text-sm">Process & validate</p>
-          </div>
-
-          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Statistical Analysis & Modeling', 'I apply statistical tests, build predictive models, and uncover patterns. Using regression, classification, clustering, and hypothesis testing to extract insights.')">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
-              <i class="fas fa-chart-line text-2xl text-white"></i>
-            </div>
-            <h4 class="text-white font-bold mb-2">Analyze</h4>
-            <p class="text-white/70 text-sm">Extract insights</p>
-          </div>
-
-          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Visualization & Storytelling', 'Data tells stories. I create compelling visualizations and actionable dashboards that transform complex findings into clear business recommendations.')">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
-              <i class="fas fa-presentation text-2xl text-white"></i>
-            </div>
-            <h4 class="text-white font-bold mb-2">Communicate</h4>
-            <p class="text-white/70 text-sm">Present findings</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-20 reveal">
-        <h3 class="text-3xl font-bold text-center text-white mb-12">
-          Critical <span class="text-gradient">Thinking Skills</span>
-        </h3>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="glass-dark p-6 rounded-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
-            <div class="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center group-hover:rotate-12 transition-transform">
-              <i class="fas fa-lightbulb text-xl text-white"></i>
+      <div class="text-center mb-12">
+        <h3 class="text-4xl font-bold text-white mb-12">Critical Thinking Toolkit</h3>
+        <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div class="skill-card glass p-6 rounded-2xl">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+              <i class="fas fa-puzzle-piece text-2xl text-white"></i>
             </div>
             <h4 class="text-white font-bold mb-2">Problem Decomposition</h4>
-            <p class="text-white/70 text-sm">Breaking complex business problems into analyzable components</p>
+            <p class="text-gray-400 text-sm">Breaking complex problems into solvable parts</p>
           </div>
 
-          <div class="glass-dark p-6 rounded-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
-            <div class="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center group-hover:rotate-12 transition-transform">
-              <i class="fas fa-search text-xl text-white"></i>
+          <div class="skill-card glass p-6 rounded-2xl">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center">
+              <i class="fas fa-search-plus text-2xl text-white"></i>
             </div>
             <h4 class="text-white font-bold mb-2">Pattern Recognition</h4>
-            <p class="text-white/70 text-sm">Identifying trends, anomalies, and correlations in data</p>
+            <p class="text-gray-400 text-sm">Identifying trends and anomalies in data</p>
           </div>
 
-          <div class="glass-dark p-6 rounded-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
-            <div class="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center group-hover:rotate-12 transition-transform">
-              <i class="fas fa-brain text-xl text-white"></i>
+          <div class="skill-card glass p-6 rounded-2xl">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+              <i class="fas fa-flask text-2xl text-white"></i>
             </div>
             <h4 class="text-white font-bold mb-2">Hypothesis Testing</h4>
-            <p class="text-white/70 text-sm">Formulating and validating assumptions with statistical rigor</p>
+            <p class="text-gray-400 text-sm">Validating assumptions with rigor</p>
           </div>
 
-          <div class="glass-dark p-6 rounded-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
-            <div class="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center group-hover:rotate-12 transition-transform">
-              <i class="fas fa-balance-scale text-xl text-white"></i>
+          <div class="skill-card glass p-6 rounded-2xl">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center">
+              <i class="fas fa-balance-scale text-2xl text-white"></i>
             </div>
             <h4 class="text-white font-bold mb-2">Bias Detection</h4>
-            <p class="text-white/70 text-sm">Recognizing and mitigating data biases and confounding variables</p>
+            <p class="text-gray-400 text-sm">Mitigating data quality issues</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="py-20 animated-gradient">
+  <section id="projects" class="py-20 bg-gradient-to-b from-gray-900 to-black">
     <div class="container mx-auto px-6">
-      <div class="reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-12">
-          Featured <span class="text-gradient">Projects</span>
-        </h2>
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">Featured Projects</h2>
+        <p class="text-xl text-gray-400">Real-world applications of data science</p>
       </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div class="project-card glass p-8 rounded-3xl" onclick="showModal('Real Estate Price Prediction', 'Built ML model to forecast Gurgaon property prices with 90% accuracy using advanced regression techniques. Implemented Linear Regression, Random Forest, and Gradient Boosting with comprehensive feature engineering and cross-validation.')">
+          <i class="fas fa-home text-5xl text-green-400 mb-4"></i>
+          <h3 class="text-2xl font-bold text-white mb-3">Real Estate Price Prediction</h3>
+          <p class="text-gray-300 mb-4">ML model forecasting property prices with 90% accuracy</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Scikit-learn</span>
+          </div>
+        </div>
+
+        <div class="project-card glass p-8 rounded-3xl" onclick="showModal('Job Role Prediction', 'Predicted developer positions using Stack Overflow survey data with 15+ ML algorithms. Conducted comprehensive EDA, feature selection, and model comparison to identify career progression patterns.')">
+          <i class="fas fa-code text-5xl text-blue-400 mb-4"></i>
+          <h3 class="text-2xl font-bold text-white mb-3">Developer Job Role Prediction</h3>
+          <p class="text-gray-300 mb-4">Multi-algorithm ML classification from survey data</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">15+ Models</span>
+          </div>
+        </div>
+
+        <div class="project-card glass p-8 rounded-3xl" onclick="showModal('Olympics Analytics', 'Comprehensive SQL analysis of historical Olympics data spanning 120+ years. Delivered insights into performance patterns, athlete achievements, and medal distributions across countries.')">
+          <i class="fas fa-medal text-5xl text-yellow-400 mb-4"></i>
+          <h3 class="text-2xl font-bold text-white mb-3">Olympics Data Analysis</h3>
+          <p class="text-gray-300 mb-4">SQL-based historical performance analytics</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">SQL</span>
+            <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">Analytics</span>
+          </div>
+        </div>
+
+        <div class="project-card glass p-8 rounded-3xl" onclick="showModal('IPL Match Analysis', 'SQL-based analysis of IPL cricket data including match outcomes, team strategies, and player performance metrics for strategic insights and predictions.')">
+          <i class="fas fa-chart-line text-5xl text-orange-400 mb-4"></i>
+          <h3 class="text-2xl font-bold text-white mb-3">IPL Match Analysis</h3>
+          <p class="text-gray-300 mb-4">Cricket data analysis for strategic insights</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">SQL</span>
+            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Sports Analytics</span>
+          </div>
+        </div>
+
+        <div class="project-card glass p-8 rounded-3xl" onclick="showModal('Music Store Analysis', 'Advanced SQL analysis of digital music store database to understand customer purchasing patterns and optimize inventory for revenue growth.')">
+          <i class="fas fa-music text-5xl text-purple-400 mb-4"></i>
+          <h3 class="text-2xl font-bold text-white mb-3">Music Store Analytics</h3>
+          <p class="text-gray-300 mb-4">Business intelligence for retail optimization</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">SQL</span>
+            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">BI</span>
+          </div>
+        </div>
+
+        <div class="project-card glass p-8 rounded-3xl" onclick="window.open('https://github.com/Priyanshusingh0725', '_blank')">
+          <i class="fab fa-github text-5xl text-gray-300 mb-4"></i>
+          <h3 class="text-2xl font-bold text-white mb-3">More Projects</h3>
+          <p class="text-gray-300 mb-4">Explore all my code repositories on GitHub</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-sm">Open Source</span>
+            <span class="px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-sm">Portfolio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-20 bg-black">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-white mb-4" style="font-family: 'Space Grotesk', sans-serif;">Let's Connect</h2>
+        <p class="text-xl text-gray-400">Open to Data Analytics, ML, and Business Intelligence roles</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all cursor-pointer" onclick="copyText('priyanshusingh.bhu.stats26@gmail.com')">
+          <i class="fas fa-envelope text-5xl text-blue-400 mb-4"></i>
+          <h3 class="text-white font-bold mb-2">Email</h3>
+          <p class="text-gray-400 text-sm break-all">priyanshusingh.bhu.stats26@gmail.com</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all cursor-pointer" onclick="copyText('+91 7007139059')">
+          <i class="fas fa-phone text-5xl text-green-400 mb-4"></i>
+          <h3 class="text-white font-bold mb-2">Phone</h3>
+          <p class="text-gray-400">+91 7007139059</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all cursor-pointer" onclick="window.open('https://www.linkedin.com/in/priyanshu-singh-bhu', '_blank')">
+          <i class="fab fa-linkedin text-5xl text-blue-500 mb-4"></i>
+          <h3 class="text-white font-bold mb-2">LinkedIn</h3>
+          <p class="text-gray-400">Professional Network</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all cursor-pointer" onclick="window.open('https://github.com/Priyanshusingh0725', '_blank')">
+          <i class="fab fa-github text-5xl text-gray-300 mb-4"></i>
+          <h3 class="text-white font-bold mb-2">GitHub</h3>
+          <p class="text-gray-400">Code Repository</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all">
+          <i class="fas fa-map-marker-alt text-5xl text-red-400 mb-4"></i>
+          <h3 class="text-white font-bold mb-2">Location</h3>
+          <p class="text-gray-400">Varanasi, India</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl text-center hover:scale-105 transition-all cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <i class="fas fa-globe text-5xl text-purple-400 mb-4"></i>
+          <h3 class="text-white font-bold mb-2">Portfolio</h3>
+          <p class="text-gray-400">This Website</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 bg-black border-t border-gray-800">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-gray-400">&copy; 2025 Priyanshu Singh. All rights reserved.</p>
+      <p class="text-gray-500 text-sm mt-2">Designed with passion for data science and analytics</p>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h3 id="modalTitle" class="text-3xl font-bold text-white mb-4"></h3>
+      <p id="modalDesc" class="text-gray-300 leading-relaxed mb-6"></p>
+      <button onclick="closeModal()" class="glass px-6 py-3 rounded-full text-white hover:bg-white hover:text-purple-900 transition-all">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <div id="notification" class="notification"></div>
+
+  <script>
+    function showModal(title, desc) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = desc;
+      document.getElementById('modal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
+
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    function copyText(text) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          showNotification('Copied to clipboard!');
+        }).catch(() => {
+          fallbackCopy(text);
+        });
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showNotification('Copied to clipboard!');
+      } catch (err) {
+        showNotification('Unable to copy');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function showNotification(message) {
+      const notif = document.getElementById('notification');
+      notif.textContent = message;
+      notif.classList.add('success', 'show');
+      setTimeout(() => {
+        notif.classList.remove('show');
+      }, 3000);
+    }
+
+    function downloadCV() {
+      const link = document.createElement('a');
+      link.href = './priyanshu_updated_cv1.pdf';
+      link.download = 'Priyanshu_Singh_CV.pdf';
+      link.style.display = 'none';
+      document.body.appendChild(link);
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('Gurgaon Real Estate Price Prediction', 'Built ML model to forecast property prices with 90% accuracy using advanced regression techniques. Features comprehensive data analysis, feature engineering, and interactive visualization models including Linear Regression, Random Forest, and Gradient Boosting.')">
-          <div class="mb-6">
-            <i class="fas fa-home text-4xl text-green-400 mb-4"></i>
-            <h3 class="text-2xl font-bold text-white mb-3">Real Estate Price Prediction</h3>
-            <p class="text-white/80 leading-relaxed">ML model to forecast Gurgaon property prices with 90% accuracy</p>
-          </div>
-          
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Python</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Scikit-learn</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Regression</span>
-          </div>
-          
-          <div class="pulse-dot w-3 h-3 bg-green-400 rounded-full mb-2"></div>
-          <p class="text-green-300 text-sm font-medium">Machine Learning</p>
-        </div>
+      try {
+        link.click();
+        showNotification('CV download started!');
+      } catch (error) {
+        try {
+          window.open('./priyanshu_updated_cv1.pdf', '_blank');
+          showNotification('CV opened in new tab!');
+        } catch (error2) {
+          window.open('https://github.com/Priyanshusingh0725/Priyanshusingh0725/raw/main/priyanshu_updated_cv1.pdf', '_blank');
+          showNotification('Opening from GitHub...');
+        }
+      }
+      
+      document.body.removeChild(link);
+    }
 
-        <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('Developer Job Role Prediction', 'Predicted developer positions using Stack Overflow Developer Survey data with 15+ ML algorithms. Comprehensive data analysis to identify meaningful patterns and relationships in developer career progression and skill requirements.')">
-          <div class="mb-6">
-            <i class="fas fa-code text-4xl text-blue-400 mb-4"></i>
-            <h3 class="text-2xl font-bold text-white mb-3">Job Role Prediction</h3>
-            <p class="text-white/80 leading-relaxed">ML model predicting developer roles from Stack Overflow survey data</p>
-          </div>
-          
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Python</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">15+ ML Models</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Classification</span>
-          </div>
-          
-          <div class="pulse-dot w-3 h-3 bg-blue-400 rounded-full mb-2"></div>
-          <p class="text-blue-300 text-sm font-medium">Predictive Analytics</p>
-        </div>
-
-        <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('Olympics Data Analysis', 'Comprehensive SQL analysis of historical Olympics data spanning multiple editions. Delivered insights into historical performance patterns, athlete achievements, and medal distributions across countries and sports.')">
-          <div class="mb-6">
-            <i class="fas fa-medal text-4xl text-yellow-400 mb-4"></i>
-            <h3 class="text-2xl font-bold text-white mb-3">Olympics Analytics</h3>
-            <p class="text-white/80 leading-relaxed">SQL-based analysis of historical Olympics performance data</p>
-          </div>
-          
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">SQL</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Data Analysis</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Sports Analytics</span>
-          </div>
-          
-          <div class="pulse-dot w-3 h-3 bg-yellow-400 rounded-full mb-2"></div>
-          <p class="text-yellow-300 text-sm font-medium">Data Analytics</p>
-        </div>
-
-        <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('IPL Match Analysis', 'Comprehensive SQL-based analysis of IPL cricket data including match outcomes, team strategies, player performance metrics. Generated insights for team optimization and match prediction models.')">
-          <div class="mb-6">
-            <i class="fas fa-chart-line text-4xl text-orange-400 mb-4"></i>
-            <h3 class="text-2xl font-bold text-white mb-3">IPL Match Analysis</h3>
-            <p class="text-white/80 leading-relaxed">SQL analysis of cricket data for strategic insights and predictions</p>
-          </div>
-          
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">SQL</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Sports Analytics</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Performance Analysis</span>
-          </div>
-          
-          <div class="pulse-dot w-3 h-3 bg-orange-400 rounded-full mb-2"></div>
-          <p class="text-orange-300 text-sm font-medium">Sports Intelligence</p>
-        </div>
-
-        <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('Music Store Analysis', 'Advanced SQL analysis of digital music store database to understand customer purchasing patterns, optimize inventory, and provide data-driven business recommendations for revenue growth.')">
-          <div class="mb-6">
-            <i class="fas fa-music text-4xl text-purple-400 mb-4"></i>
-            <h3 class="text-2xl font-bold text-white mb-3">Music Store Analytics</h3>
-            <p class="text-white/80 leading-relaxed">SQL analysis of music store data for business optimization</p>
-          </div>
-          
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">SQL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
