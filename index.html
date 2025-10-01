@@ -15,7 +15,6 @@
       overflow-x: hidden;
     }
 
-    /* Animated gradient background */
     .animated-gradient {
       background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
       background-size: 400% 400%;
@@ -28,7 +27,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Floating particles */
     .particles {
       position: absolute;
       top: 0;
@@ -51,7 +49,6 @@
       50% { transform: translateY(-20px) rotate(180deg); }
     }
 
-    /* Glassmorphism effect */
     .glass {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
@@ -67,7 +64,6 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Typewriter effect */
     .typewriter {
       overflow: hidden;
       border-right: 3px solid rgba(255, 255, 255, 0.8);
@@ -85,7 +81,6 @@
       50% { border-color: rgba(255, 255, 255, 0.8) }
     }
 
-    /* Animated text gradient */
     .text-gradient {
       background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
       background-size: 300% 300%;
@@ -100,7 +95,6 @@
       50% { background-position: 100% 50%; }
     }
 
-    /* Floating animations */
     .float-1 { animation: floatY 4s ease-in-out infinite; }
     .float-2 { animation: floatY 4s ease-in-out infinite 1s; }
     .float-3 { animation: floatY 4s ease-in-out infinite 2s; }
@@ -110,7 +104,6 @@
       50% { transform: translateY(-15px); }
     }
 
-    /* Project card hover effects */
     .project-card {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
@@ -138,7 +131,6 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
-    /* Skill icons animation */
     .skill-icon {
       transition: all 0.3s ease;
     }
@@ -148,7 +140,6 @@
       filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
     }
 
-    /* Navigation hover effects */
     .nav-link {
       position: relative;
       overflow: hidden;
@@ -169,7 +160,6 @@
       left: 0;
     }
 
-    /* Pulsing dot animation */
     .pulse-dot {
       animation: pulse 2s infinite;
     }
@@ -180,7 +170,6 @@
       100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
     }
 
-    /* Morphing shapes */
     .morph-1 {
       clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 85%);
       transition: clip-path 0.4s ease;
@@ -190,7 +179,6 @@
       clip-path: polygon(15% 0%, 100% 0%, 100% 85%, 0% 100%);
     }
 
-    /* 3D card effect */
     .card-3d {
       transform-style: preserve-3d;
       transition: transform 0.3s ease;
@@ -200,7 +188,6 @@
       transform: rotateX(5deg) rotateY(5deg);
     }
 
-    /* Progress bars */
     .progress-bar {
       height: 6px;
       background: rgba(255, 255, 255, 0.2);
@@ -220,7 +207,6 @@
       to { transform: translateX(0); }
     }
 
-    /* Scroll reveal animations */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -232,7 +218,6 @@
       transform: translateY(0);
     }
 
-    /* Success notification */
     .success-notification {
       position: fixed;
       top: 20px;
@@ -265,10 +250,8 @@
 </head>
 
 <body class="bg-gray-900">
-  <!-- Animated particles background -->
   <div class="particles fixed inset-0 pointer-events-none" id="particles"></div>
 
-  <!-- Navigation -->
   <nav class="glass fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#" class="text-xl font-bold text-white text-gradient hover:scale-105 transition-transform">
@@ -287,7 +270,6 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section id="home" class="animated-gradient min-h-screen flex items-center justify-center relative">
     <div class="container mx-auto px-6 text-center relative z-10">
       <div class="glass p-12 rounded-3xl max-w-4xl mx-auto">
@@ -303,7 +285,6 @@
           </p>
         </div>
 
-        <!-- Floating skill icons -->
         <div class="flex justify-center space-x-8 mb-8">
           <div class="skill-icon float-1 glass p-4 rounded-full">
             <i class="fab fa-python text-3xl text-yellow-400"></i>
@@ -319,7 +300,6 @@
           </div>
         </div>
 
-        <!-- CTA Buttons -->
         <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
           <button onclick="scrollToSection('projects')" class="glass px-8 py-3 rounded-full text-white font-semibold hover:scale-105 transition-all duration-300 flex items-center space-x-2">
             <span>View My Work</span>
@@ -334,7 +314,6 @@
     </div>
   </section>
 
-  <!-- About Section -->
   <section id="about" class="py-20 bg-gray-900 relative">
     <div class="container mx-auto px-6">
       <div class="reveal">
@@ -344,7 +323,6 @@
       </div>
       
       <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Profile Image -->
         <div class="reveal flex justify-center lg:justify-end">
           <div class="relative">
             <img src="https://placehold.co/400x500/6366f1/ffffff?text=Priyanshu" 
@@ -355,7 +333,6 @@
           </div>
         </div>
 
-        <!-- About Content -->
         <div class="reveal">
           <div class="glass p-8 rounded-3xl">
             <h3 class="text-2xl font-bold text-white mb-6">Data Analyst & ML Engineer</h3>
@@ -365,7 +342,6 @@
               Based in <span class="text-yellow-300 font-semibold">Varanasi, India</span>.
             </p>
             
-            <!-- Skills Progress -->
             <div class="space-y-4">
               <div>
                 <div class="flex justify-between text-white/80 mb-2">
@@ -398,10 +374,99 @@
           </div>
         </div>
       </div>
+
+      <div class="mt-20 reveal">
+        <h3 class="text-3xl font-bold text-center text-white mb-12">
+          My <span class="text-gradient">Analytics Approach</span>
+        </h3>
+        
+        <div class="grid md:grid-cols-5 gap-6 relative">
+          <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-30" style="transform: translateY(-50%);"></div>
+          
+          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Ask the Right Questions', 'Every analysis begins with curiosity. I identify business problems, define clear objectives, and formulate hypotheses that guide the investigation.')">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+              <i class="fas fa-question text-2xl text-white"></i>
+            </div>
+            <h4 class="text-white font-bold mb-2">Question</h4>
+            <p class="text-white/70 text-sm">Define the problem</p>
+          </div>
+
+          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Data Collection & Extraction', 'I gather data from multiple sources using SQL queries, APIs, and web scraping. Quality over quantity - ensuring data relevance and reliability.')">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+              <i class="fas fa-database text-2xl text-white"></i>
+            </div>
+            <h4 class="text-white font-bold mb-2">Collect</h4>
+            <p class="text-white/70 text-sm">Gather & extract data</p>
+          </div>
+
+          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Data Cleaning & Preprocessing', 'The foundation of good analysis. I handle missing values, remove duplicates, detect outliers, and ensure data consistency using Python and Pandas.')">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center">
+              <i class="fas fa-broom text-2xl text-white"></i>
+            </div>
+            <h4 class="text-white font-bold mb-2">Clean</h4>
+            <p class="text-white/70 text-sm">Process & validate</p>
+          </div>
+
+          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Statistical Analysis & Modeling', 'I apply statistical tests, build predictive models, and uncover patterns. Using regression, classification, clustering, and hypothesis testing to extract insights.')">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+              <i class="fas fa-chart-line text-2xl text-white"></i>
+            </div>
+            <h4 class="text-white font-bold mb-2">Analyze</h4>
+            <p class="text-white/70 text-sm">Extract insights</p>
+          </div>
+
+          <div class="glass-dark p-6 rounded-2xl text-center relative z-10 hover:scale-105 transition-transform cursor-pointer" onclick="showProcessDetail('Visualization & Storytelling', 'Data tells stories. I create compelling visualizations and actionable dashboards that transform complex findings into clear business recommendations.')">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center">
+              <i class="fas fa-presentation text-2xl text-white"></i>
+            </div>
+            <h4 class="text-white font-bold mb-2">Communicate</h4>
+            <p class="text-white/70 text-sm">Present findings</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 reveal">
+        <h3 class="text-3xl font-bold text-center text-white mb-12">
+          Critical <span class="text-gradient">Thinking Skills</span>
+        </h3>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="glass-dark p-6 rounded-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
+            <div class="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-lightbulb text-xl text-white"></i>
+            </div>
+            <h4 class="text-white font-bold mb-2">Problem Decomposition</h4>
+            <p class="text-white/70 text-sm">Breaking complex business problems into analyzable components</p>
+          </div>
+
+          <div class="glass-dark p-6 rounded-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
+            <div class="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-search text-xl text-white"></i>
+            </div>
+            <h4 class="text-white font-bold mb-2">Pattern Recognition</h4>
+            <p class="text-white/70 text-sm">Identifying trends, anomalies, and correlations in data</p>
+          </div>
+
+          <div class="glass-dark p-6 rounded-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
+            <div class="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-brain text-xl text-white"></i>
+            </div>
+            <h4 class="text-white font-bold mb-2">Hypothesis Testing</h4>
+            <p class="text-white/70 text-sm">Formulating and validating assumptions with statistical rigor</p>
+          </div>
+
+          <div class="glass-dark p-6 rounded-2xl hover:scale-105 transition-all duration-300 cursor-pointer group">
+            <div class="w-12 h-12 mb-4 rounded-lg bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center group-hover:rotate-12 transition-transform">
+              <i class="fas fa-balance-scale text-xl text-white"></i>
+            </div>
+            <h4 class="text-white font-bold mb-2">Bias Detection</h4>
+            <p class="text-white/70 text-sm">Recognizing and mitigating data biases and confounding variables</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
   <section id="projects" class="py-20 animated-gradient">
     <div class="container mx-auto px-6">
       <div class="reveal">
@@ -411,7 +476,6 @@
       </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project 1 -->
         <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('Gurgaon Real Estate Price Prediction', 'Built ML model to forecast property prices with 90% accuracy using advanced regression techniques. Features comprehensive data analysis, feature engineering, and interactive visualization models including Linear Regression, Random Forest, and Gradient Boosting.')">
           <div class="mb-6">
             <i class="fas fa-home text-4xl text-green-400 mb-4"></i>
@@ -429,7 +493,6 @@
           <p class="text-green-300 text-sm font-medium">Machine Learning</p>
         </div>
 
-        <!-- Project 2 -->
         <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('Developer Job Role Prediction', 'Predicted developer positions using Stack Overflow Developer Survey data with 15+ ML algorithms. Comprehensive data analysis to identify meaningful patterns and relationships in developer career progression and skill requirements.')">
           <div class="mb-6">
             <i class="fas fa-code text-4xl text-blue-400 mb-4"></i>
@@ -447,7 +510,6 @@
           <p class="text-blue-300 text-sm font-medium">Predictive Analytics</p>
         </div>
 
-        <!-- Project 3 -->
         <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('Olympics Data Analysis', 'Comprehensive SQL analysis of historical Olympics data spanning multiple editions. Delivered insights into historical performance patterns, athlete achievements, and medal distributions across countries and sports.')">
           <div class="mb-6">
             <i class="fas fa-medal text-4xl text-yellow-400 mb-4"></i>
@@ -465,7 +527,6 @@
           <p class="text-yellow-300 text-sm font-medium">Data Analytics</p>
         </div>
 
-        <!-- Project 4 -->
         <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('IPL Match Analysis', 'Comprehensive SQL-based analysis of IPL cricket data including match outcomes, team strategies, player performance metrics. Generated insights for team optimization and match prediction models.')">
           <div class="mb-6">
             <i class="fas fa-chart-line text-4xl text-orange-400 mb-4"></i>
@@ -483,7 +544,6 @@
           <p class="text-orange-300 text-sm font-medium">Sports Intelligence</p>
         </div>
 
-        <!-- Project 5 -->
         <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="showProjectDetails('Music Store Analysis', 'Advanced SQL analysis of digital music store database to understand customer purchasing patterns, optimize inventory, and provide data-driven business recommendations for revenue growth.')">
           <div class="mb-6">
             <i class="fas fa-music text-4xl text-purple-400 mb-4"></i>
@@ -492,433 +552,4 @@
           </div>
           
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">SQL</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Business Analytics</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Customer Insights</span>
-          </div>
-          
-          <div class="pulse-dot w-3 h-3 bg-purple-400 rounded-full mb-2"></div>
-          <p class="text-purple-300 text-sm font-medium">Business Intelligence</p>
-        </div>
-
-        <!-- GitHub Projects Link -->
-        <div class="project-card glass-dark p-8 rounded-3xl reveal card-3d" onclick="window.open('https://github.com/Priyanshusingh0725', '_blank')">
-          <div class="mb-6">
-            <i class="fab fa-github text-4xl text-gray-300 mb-4"></i>
-            <h3 class="text-2xl font-bold text-white mb-3">More Projects</h3>
-            <p class="text-white/80 leading-relaxed">Explore all my projects and code repositories on GitHub</p>
-          </div>
-          
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Open Source</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Code Samples</span>
-            <span class="glass px-3 py-1 rounded-full text-sm text-white">Portfolio</span>
-          </div>
-          
-          <div class="pulse-dot w-3 h-3 bg-gray-400 rounded-full mb-2"></div>
-          <p class="text-gray-300 text-sm font-medium">Repository</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-900 relative">
-    <div class="container mx-auto px-6 text-center">
-      <div class="reveal">
-        <h2 class="text-4xl font-bold text-white mb-4">
-          Let's <span class="text-gradient">Connect</span>
-        </h2>
-        <p class="text-xl text-white/80 mb-12">Open to roles in Data Analytics, Machine Learning, and Business Intelligence</p>
-      </div>
-      
-      <div class="glass p-12 rounded-3xl max-w-6xl mx-auto reveal">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Email -->
-          <div class="group cursor-pointer" onclick="copyToClipboard('priyanshusingh.bhu.stats26@gmail.com')">
-            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform duration-300">
-              <i class="fas fa-envelope text-4xl text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 class="text-white font-semibold mb-2">Email</h3>
-              <p class="text-white/80 text-sm break-all">priyanshusingh.bhu.stats26@gmail.com</p>
-            </div>
-          </div>
-
-          <!-- Phone -->
-          <div class="group cursor-pointer" onclick="copyToClipboard('+91 7007139059')">
-            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform duration-300">
-              <i class="fas fa-phone text-4xl text-green-400 mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 class="text-white font-semibold mb-2">Phone</h3>
-              <p class="text-white/80">+91 7007139059</p>
-            </div>
-          </div>
-
-          <!-- LinkedIn -->
-          <div class="group cursor-pointer" onclick="window.open('https://www.linkedin.com/in/priyanshu-singh-bhu', '_blank')">
-            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform duration-300">
-              <i class="fab fa-linkedin text-4xl text-blue-500 mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 class="text-white font-semibold mb-2">LinkedIn</h3>
-              <p class="text-white/80">Professional Network</p>
-            </div>
-          </div>
-
-          <!-- GitHub -->
-          <div class="group cursor-pointer" onclick="window.open('https://github.com/Priyanshusingh0725', '_blank')">
-            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform duration-300">
-              <i class="fab fa-github text-4xl text-gray-300 mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 class="text-white font-semibold mb-2">GitHub</h3>
-              <p class="text-white/80">Code Repository</p>
-            </div>
-          </div>
-
-          <!-- Portfolio Website -->
-          <div class="group cursor-pointer" onclick="scrollToSection('home')">
-            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform duration-300">
-              <i class="fas fa-globe text-4xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform"></i>
-              <h3 class="text-white font-semibold mb-2">Portfolio</h3>
-              <p class="text-white/80">This Website</p>
-            </div>
-          </div>
-
-          <!-- Location -->
-          <div class="group">
-            <div class="glass p-6 rounded-2xl">
-              <i class="fas fa-map-marker-alt text-4xl text-red-400 mb-4"></i>
-              <h3 class="text-white font-semibold mb-2">Location</h3>
-              <p class="text-white/80">Varanasi, India</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="glass py-8 text-center">
-    <div class="container mx-auto px-6">
-      <p class="text-white/70">&copy; 2025 Priyanshu Singh. All rights reserved.</p>
-      <p class="text-white/50 text-sm mt-2">Designed with passion for data science and analytics ❤️</p>
-    </div>
-  </footer>
-
-  <!-- Project Modal -->
-  <div id="projectModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-all duration-300">
-    <div class="flex items-center justify-center min-h-screen p-6">
-      <div class="glass-dark p-8 rounded-3xl max-w-lg w-full transform scale-90 transition-transform duration-300" id="modalContent">
-        <h3 class="text-2xl font-bold text-white mb-4" id="modalTitle"></h3>
-        <p class="text-white/80 mb-6 leading-relaxed" id="modalDescription"></p>
-        <button onclick="closeModal()" class="glass px-6 py-2 rounded-full text-white hover:scale-105 transition-transform">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Create floating particles
-    function createParticles() {
-      const particles = document.getElementById('particles');
-      const particleCount = 50;
-      
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.width = Math.random() * 4 + 2 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.animationDelay = Math.random() * 6 + 's';
-        particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-        particles.appendChild(particle);
-      }
-    }
-
-    // Scroll reveal animation
-    function revealOnScroll() {
-      const reveals = document.querySelectorAll('.reveal');
-      const windowHeight = window.innerHeight;
-      
-      reveals.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < windowHeight - elementVisible) {
-          element.classList.add('active');
-        }
-      });
-    }
-
-    // Smooth scrolling
-    function scrollToSection(sectionId) {
-      document.getElementById(sectionId).scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-
-    // Show notification
-    function showNotification(message, type = 'success') {
-      // Remove existing notifications
-      const existing = document.querySelectorAll('.success-notification');
-      existing.forEach(el => el.remove());
-
-      const notification = document.createElement('div');
-      notification.className = `success-notification ${type}`;
-      notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check' : 'exclamation-triangle'} mr-2"></i>
-        ${message}
-      `;
-      
-      document.body.appendChild(notification);
-      
-      // Show notification
-      setTimeout(() => {
-        notification.classList.add('show');
-      }, 100);
-      
-      // Hide notification
-      setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-          if (notification.parentNode) {
-            notification.remove();
-          }
-        }, 300);
-      }, 3000);
-    }
-
-    // Download CV function with multiple fallback methods
-    function downloadCV() {
-      const button = event.target.closest('button');
-      const originalText = button.innerHTML;
-      button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Downloading...';
-      
-      // Method 1: Try direct download
-      const link = document.createElement('a');
-      link.href = './priyanshu_updated_cv1.pdf';
-      link.download = 'Priyanshu_Singh_CV.pdf';
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      
-      try {
-        link.click();
-        document.body.removeChild(link);
-        
-        setTimeout(() => {
-          button.innerHTML = '<i class="fas fa-check mr-2"></i>Downloaded!';
-          showNotification('CV downloaded successfully!', 'success');
-          setTimeout(() => {
-            button.innerHTML = originalText;
-          }, 2000);
-        }, 500);
-        
-      } catch (error) {
-        // Method 2: Open in new tab if download fails
-        document.body.removeChild(link);
-        
-        try {
-          window.open('./priyanshu_updated_cv1.pdf', '_blank');
-          
-          setTimeout(() => {
-            button.innerHTML = '<i class="fas fa-external-link-alt mr-2"></i>Opened!';
-            showNotification('CV opened in new tab!', 'success');
-            setTimeout(() => {
-              button.innerHTML = originalText;
-            }, 2000);
-          }, 500);
-          
-        } catch (error2) {
-          // Method 3: Fallback to GitHub raw link
-          setTimeout(() => {
-            window.open('https://github.com/Priyanshusingh0725/Priyanshusingh0725/raw/main/priyanshu_updated_cv1.pdf', '_blank');
-            button.innerHTML = '<i class="fas fa-external-link-alt mr-2"></i>Opened!';
-            showNotification('CV opened from GitHub!', 'success');
-            setTimeout(() => {
-              button.innerHTML = originalText;
-            }, 2000);
-          }, 500);
-        }
-      }
-    }
-
-    // Show project details
-    function showProjectDetails(title, description) {
-      const modal = document.getElementById('projectModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalDescription = document.getElementById('modalDescription');
-      const modalContent = document.getElementById('modalContent');
-      
-      modalTitle.textContent = title;
-      modalDescription.textContent = description;
-      
-      modal.style.opacity = '1';
-      modal.style.pointerEvents = 'auto';
-      modalContent.style.transform = 'scale(1)';
-    }
-
-    // Close modal
-    function closeModal() {
-      const modal = document.getElementById('projectModal');
-      const modalContent = document.getElementById('modalContent');
-      
-      modalContent.style.transform = 'scale(0.9)';
-      setTimeout(() => {
-        modal.style.opacity = '0';
-        modal.style.pointerEvents = 'none';
-      }, 150);
-    }
-
-    // Copy to clipboard
-    function copyToClipboard(text) {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(() => {
-          showNotification('Copied to clipboard!', 'success');
-        }).catch(() => {
-          fallbackCopyTextToClipboard(text);
-        });
-      } else {
-        fallbackCopyTextToClipboard(text);
-      }
-    }
-
-    // Fallback copy method for older browsers or non-HTTPS
-    function fallbackCopyTextToClipboard(text) {
-      const textArea = document.createElement("textarea");
-      textArea.value = text;
-      textArea.style.top = "0";
-      textArea.style.left = "0";
-      textArea.style.position = "fixed";
-      textArea.style.opacity = "0";
-
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-
-      try {
-        document.execCommand('copy');
-        showNotification('Copied to clipboard!', 'success');
-      } catch (err) {
-        showNotification('Unable to copy. Please copy manually.', 'error');
-        console.error('Fallback: Oops, unable to copy', err);
-      }
-
-      document.body.removeChild(textArea);
-    }
-
-    // Navbar transparency on scroll
-    function updateNavbar() {
-      const navbar = document.getElementById('navbar');
-      const scrolled = window.pageYOffset > 50;
-      
-      if (scrolled) {
-        navbar.style.background = 'rgba(0, 0, 0, 0.3)';
-      } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.1)';
-      }
-    }
-
-    // Mouse trail effect
-    function createMouseTrail() {
-      let mouseX = 0, mouseY = 0;
-      let trail = [];
-
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
-
-      function updateTrail() {
-        trail.unshift({ x: mouseX, y: mouseY });
-        if (trail.length > 8) trail.pop();
-
-        const existingTrail = document.querySelectorAll('.mouse-trail');
-        existingTrail.forEach(el => el.remove());
-
-        trail.forEach((pos, index) => {
-          const dot = document.createElement('div');
-          dot.className = 'mouse-trail';
-          dot.style.cssText = `
-            position: fixed;
-            left: ${pos.x}px;
-            top: ${pos.y}px;
-            width: ${8 - index}px;
-            height: ${8 - index}px;
-            background: rgba(255, 255, 255, ${0.4 - index * 0.05});
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-          `;
-          document.body.appendChild(dot);
-          
-          setTimeout(() => {
-            if (dot.parentNode) {
-              dot.remove();
-            }
-          }, 150);
-        });
-
-        requestAnimationFrame(updateTrail);
-      }
-      updateTrail();
-    }
-
-    // Close modal on click outside
-    document.addEventListener('DOMContentLoaded', () => {
-      const projectModal = document.getElementById('projectModal');
-      if (projectModal) {
-        projectModal.addEventListener('click', (e) => {
-          if (e.target.id === 'projectModal') {
-            closeModal();
-          }
-        });
-      }
-    });
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeModal();
-      }
-    });
-
-    // Initialize all effects
-    document.addEventListener('DOMContentLoaded', () => {
-      createParticles();
-      createMouseTrail();
-      revealOnScroll();
-      
-      // Event listeners
-      window.addEventListener('scroll', () => {
-        revealOnScroll();
-        updateNavbar();
-      });
-
-      // Smooth scroll for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-    });
-
-    // Handle mobile menu (if needed in future)
-    function toggleMobileMenu() {
-      // Implementation for mobile menu toggle
-      console.log('Mobile menu toggle');
-    }
-
-    // Preload CV for faster download
-    window.addEventListener('load', () => {
-      const link = document.createElement('link');
-      link.rel = 'prefetch';
-      link.href = './priyanshu_updated_cv1.pdf';
-      document.head.appendChild(link);
-    });
-  </script>
-</body>
-</html>
+            <span class="glass px-3 py-1 rounded-full text-sm text-white">SQL
